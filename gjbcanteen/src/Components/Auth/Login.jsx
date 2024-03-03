@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
-
+import { setPassword, setUsername } from '../../store/actions';
+// import { useHistory } from 'react-router-dom';
 
 
 const Login = () => {
   const navigate = useNavigate();
-
+    // const history=useHistory();
+    const dispatch=useDispatch();
+    
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [error,setError]=useState('')
@@ -16,6 +19,12 @@ const Login = () => {
         username:'',
         password:''
     })
+    // useEffect(()=>{
+    //     dispatch(setUsername(FormData.username));
+    //     dispatch(setPassword(FormData.password));
+
+    //     navigate('/MenuList');
+    // },[FormData.username,FormData.password,dispatch,navigate])
 const handleChange=(e)=>{
     const{name,value}=e.target;
     setFormData({
@@ -36,7 +45,10 @@ const handleSubmit=async(e)=>{
     if (response.ok) {
       setIsLoggedIn(true);
       // alert('You are now on the canteen page');
-      navigate(`/Canteens?username=${FormData.username}&email=username@gmail.com`);
+      
+      dispatch(setUsername(FormData.username));
+      dispatch(setPassword(FormData.password));
+      navigate('/MenuList');
     }else{
       alert("incorrect crenditials")
         setError('wrong username or password .please try again')
@@ -58,6 +70,7 @@ const handleSubmit=async(e)=>{
             <button type='submit' >Login</button>
         </div>
       </form>
+      {/* {isLoggedIn && <Link to="/MenuList">Go to MenuList</Link>} */}
     </div>
   )
 }

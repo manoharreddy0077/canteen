@@ -11,7 +11,7 @@ import MenuList from './Components/MenuList';
 import ConfirmCartItems from './Components/ConfirmCartItems';
 import Payment from './Components/Payment';
 import OrderDetailsDisplay from './Components/OrderDetailsDisplay';
-
+// import  store from './store/store'
 function App() {
   return (
     <div className="App">

@@ -1,15 +1,17 @@
 import React from 'react'
 import './Register'
 import Register from './Register'
-
 import Login from './Login'
+import store from '../../store/store'
+import { Provider } from 'react-redux'
+
 
 const Auth = () => {
   return (
-    <div>
-      <Register/>
-      <Login/>
-    </div>
+    <Provider store={store}>
+       <Register/>
+       <Login/>
+    </Provider>
   )
 }
 
