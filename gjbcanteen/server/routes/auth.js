@@ -1,10 +1,11 @@
 const express=require('express')
 const router=express.Router();
-const User=require('../Models/UserModel')
+const { setUsername, setPassword } = require("../../src/store/actions.js");
 
+
+const User=require('../Models/UserModel')
 router.post('/register',async(req,res)=>{
     const{email,username,password}=req.body;
-
 try{
         const existingUser=await User.findOne({email}).exec();
         // console.log(existingUser);
@@ -30,7 +31,6 @@ try{
     }
 });
 
-const {setUsername,setPassword}=require('../../src/store/actions');
 
 
 router.post('/login', async (req, res) => {

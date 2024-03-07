@@ -2,15 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import './Components/Auth/Auth';
 import './Components/ConfirmCartItems'
-import './Components/MenuList';
+import './Components/MenuList/MenuList';
 import './Components/OrderDetailsDisplay'
 import './Components/Payment'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
-import MenuList from './Components/MenuList';
+import MenuList from './Components/MenuList/MenuList';
 import ConfirmCartItems from './Components/ConfirmCartItems';
 import Payment from './Components/Payment';
 import OrderDetailsDisplay from './Components/OrderDetailsDisplay';
+import { combineReducers } from 'redux';
 // import  store from './store/store'
 function App() {
   return (
