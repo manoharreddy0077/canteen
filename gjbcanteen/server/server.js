@@ -11,7 +11,7 @@ const db=require('../server/Models/db')
 const User=require('./Models/UserModel');
 
 const redux=require("redux");
-const rootReducer=require('../src/store/reducers.js');
+const rootReducer=require('../src/store/reducers');
 const createStore=redux.legacy_createStore;
 const store=createStore(rootReducer);
 

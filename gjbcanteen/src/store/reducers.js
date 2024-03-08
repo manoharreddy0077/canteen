@@ -1,7 +1,5 @@
-// const {combineReducers} = require("redux");
-const redux=require('redux');
-const combineReducers=redux.combineReducers;
-const { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, UPDATE_CART_ITEM } = require("./actions.js");
+import { combineReducers } from 'redux';
+import { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, REMOVE_FROM_CART } from "./actions.js";
 
 const initialState = {
     username: '',
@@ -22,30 +20,29 @@ const authReducer = (state = initialState, action) => {
 const cartReducer = (state = [], action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            const existingItem = state.find((cartItem) => cartItem.item === action.payload.item);
+            const existingItem = state.find((cartItem) => cartItem.Item === action.payload.Item && cartItem.canteen === action.payload.canteen);
             if (existingItem) {
                 // If item exists, update quantity
                 return state.map((cartItem) =>
-                    cartItem.item === existingItem.item ? { ...cartItem, quan: cartItem.quan + 1 } : cartItem
+                    cartItem.Item === existingItem.Item && cartItem.canteen === action.payload.canteen ? { ...cartItem, quan: cartItem.quan + 1 } : cartItem
                 );
             } else {
                 // If item doesn't exist, add it to cart with quantity 1
                 return [...state, { ...action.payload, quan: 1 }];
             }
-        case UPDATE_CART_ITEM:
-            return state.map((cartItem) =>
-                cartItem.item === action.payload.item ? { ...cartItem, quan: cartItem.quan + 1 } : cartItem
-            );
+            case REMOVE_FROM_CART:
+                // console.log("in remove cart ")
+                return state.map((cartItem) =>
+                    cartItem.Item === action.payload.Item && cartItem.canteen === action.payload.canteen ? { ...cartItem, quan: cartItem.quan - 1 } : cartItem
+                ).filter((cartItem) => cartItem.quan > 0);
         default:
             return state;
     }
 };
 
-// const rootReducer = combineReducers({
-//     auth: authReducer,
-//     cart: cartReducer,
-// });
+const rootReducer = combineReducers({
+    auth: authReducer,
+    cart: cartReducer,
+});
 
-// module.exports = rootReducer;
-module.exports=authReducer,cartReducer;
-
+export default rootReducer;

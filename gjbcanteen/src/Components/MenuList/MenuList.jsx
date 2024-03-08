@@ -2,6 +2,7 @@
 // import cheerio from 'cheerio';
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
+import { addToCart, removeFromCart } from '../../store/actions';
 // import { tr } from 'translate-google/languages';
 
 const MenuList = () => {
@@ -13,7 +14,7 @@ const MenuList = () => {
     const cartItems=useSelector(state=>state.cart);
     const dispatch=useDispatch();
 
-    
+
    useEffect(()=>{
     fetchMenuData();
    },[canteen])
@@ -35,34 +36,20 @@ const MenuList = () => {
       }
     };
     const handleAddToCart = (item) => {
-      console.log(item);
-      const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.item === item.Item);
-      if (existingItemIndex !== -1) {
-        const updatedCartItems = [...cartItems];
-        updatedCartItems[existingItemIndex].quan++;
-        setcartItems(updatedCartItems);
-      } else {
-        setcartItems([...cartItems, {Item:item.Item,Price:item.price, quan: 1 }]);
-      }
+      const itemWithCanteen = { ...item, canteen: canteen };
+      const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
+      dispatch(addToCart(itemWithoutQuantity));
     };
-    const handleRemoveFromCart = (item) => {
-      console.log(item);
-      const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.item === item.item);
-      if (existingItemIndex !== -1) {
-        const updatedCartItems = [...cartItems];
-        if (updatedCartItems[existingItemIndex].quan > 1) {
-          updatedCartItems[existingItemIndex] = {
-            ...updatedCartItems[existingItemIndex],
-            quantity: updatedCartItems[existingItemIndex].quan - 1,
-          };
-        } else {
-          updatedCartItems.splice(existingItemIndex, 1); // Remove the item if quantity is 1
-        }
-        setcartItems(updatedCartItems);
-      } else {
-        alert('Item not in cart');
+    const handleRemoveFromCart=(item)=>{
+      const isItemInCart=cartItems.some(cartItem => cartItem.Item === item.Item && cartItem.canteen === canteen);
+      if(isItemInCart){
+        const itemWithCanteen = { ...item, canteen: canteen };
+        const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
+        dispatch(removeFromCart(itemWithoutQuantity));
+      }else{
+          alert('item not in cart');
       }
-    };
+    }
 
     const renderMenuItems=()=>{
       return (
@@ -110,9 +97,10 @@ const MenuList = () => {
       <h2>Menu Items</h2>
       {menuData.length > 0 ?  renderMenuItems() :<p>No Menu </p>}
      </div>
-     <div>
+     {/* <div>
       {cartItems.length > 0 ? renderCartItems() : <p>Empty Cart</p> }
-     </div>
+     </div> */}
+
     </div>
   )
 }
