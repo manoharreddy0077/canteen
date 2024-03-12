@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, REMOVE_FROM_CART } from "./actions.js";
+import { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, REMOVE_FROM_CART } from "./actions.mjs";
 
 const initialState = {
     username: '',
@@ -46,3 +46,4 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+

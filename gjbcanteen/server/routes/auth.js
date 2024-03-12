@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router();
-const { setUsername, setPassword } = require("../../src/store/actions.js");
+// const { setUsername, setPassword } = require("../../src/store/actions.mjs");
 
 
 const User=require('../Models/UserModel')
@@ -46,6 +46,8 @@ router.post('/login', async (req, res) => {
     }
     // Login successful
     res.status(200).json({ message: 'Login success' });
+    const actionsModule=await import("../../src/store/actions.mjs");
+    const {setUsername,setPassword}=actionsModule;
     req.app.get('store').dispatch(setUsername(username));
     req.app.get('store').dispatch(setPassword(password));
   } catch (error) {

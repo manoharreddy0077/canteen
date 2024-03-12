@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { setPassword, setUsername } from '../../store/actions.js';
+import { setPassword, setUsername } from '../../store/actions.mjs';
 // import { useHistory } from 'react-router-dom';
 
 

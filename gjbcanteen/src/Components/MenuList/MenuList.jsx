@@ -2,7 +2,7 @@
 // import cheerio from 'cheerio';
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import { addToCart, removeFromCart } from '../../store/actions';
+import { addToCart, removeFromCart } from '../../store/actions.mjs';
 // import { tr } from 'translate-google/languages';
 
 const MenuList = () => {

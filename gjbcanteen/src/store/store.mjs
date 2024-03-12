@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from 'redux';
 // import thunk from 'redux-thunk';
 
 // import { combineReducers } from 'redux';
-import rootReducer from './reducers';
+import rootReducer from './reducers.mjs';
 
 const loggerMiddleware = store => next => action => {
     console.log('dispatching', action);
