@@ -32,9 +32,10 @@ const cartReducer = (state = [], action) => {
             }
             case REMOVE_FROM_CART:
                 // console.log("in remove cart ")
-                return state.map((cartItem) =>
-                    cartItem.Item === action.payload.Item && cartItem.canteen === action.payload.canteen ? { ...cartItem, quan: cartItem.quan - 1 } : cartItem
-                ).filter((cartItem) => cartItem.quan > 0);
+                const updatedCart=state.map((cartItem)=>
+                    cartItem.Item === action.payload.Item && cartItem.canteen === action.payload.canteen ? {...cartItem,quan:cartItem.quan-1} : cartItem
+                );
+                return updatedCart.filter((cartItem)=>cartItem.quan > 0);
         default:
             return state;
     }

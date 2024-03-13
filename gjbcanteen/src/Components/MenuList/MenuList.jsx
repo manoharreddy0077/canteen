@@ -4,8 +4,10 @@ import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import { addToCart, removeFromCart } from '../../store/actions.mjs';
 // import { tr } from 'translate-google/languages';
+import { useNavigate } from 'react-router-dom';
 
 const MenuList = () => {
+    const navigate = useNavigate();
     const [canteen,setCanteen]=useState('');
     const [menuData,setMenuData]=useState([]);
     // const [cartItems,setcartItems]=useState([]);
@@ -37,15 +39,17 @@ const MenuList = () => {
     };
     const handleAddToCart = (item) => {
       const itemWithCanteen = { ...item, canteen: canteen };
-      const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
-      dispatch(addToCart(itemWithoutQuantity));
+      // const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
+      // dispatch(addToCart(itemWithoutQuantity));
+      dispatch(addToCart(itemWithCanteen));
     };
     const handleRemoveFromCart=(item)=>{
       const isItemInCart=cartItems.some(cartItem => cartItem.Item === item.Item && cartItem.canteen === canteen);
       if(isItemInCart){
         const itemWithCanteen = { ...item, canteen: canteen };
-        const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
-        dispatch(removeFromCart(itemWithoutQuantity));
+        // const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
+        // dispatch(removeFromCart(itemWithoutQuantity));
+        dispatch(removeFromCart(itemWithCanteen));
       }else{
           alert('item not in cart');
       }
@@ -80,11 +84,15 @@ const MenuList = () => {
       return (
       <ul>
           {cartItems.map(item=>(
-              <li key={item._id}>{item.Item} ---- {item.Price}----Quantity:{item.quan} </li>
+              <li key={item._id}>{item.Item} ---- {item.Price}----Quantity:{item.quan}------Canteen:{item.canteen} </li>
           ))}
       </ul>
       )
     }
+    const handleCheckOut=()=>{
+      navigate('/ConfirmCartItems')
+    }
+    
   return (
     <div>
       <h1>Welcome , {username} ra batta</h1>
@@ -97,9 +105,12 @@ const MenuList = () => {
       <h2>Menu Items</h2>
       {menuData.length > 0 ?  renderMenuItems() :<p>No Menu </p>}
      </div>
-     {/* <div>
+     <div>
       {cartItems.length > 0 ? renderCartItems() : <p>Empty Cart</p> }
-     </div> */}
+     </div>
+     <div>
+      {cartItems.length > 0 ? <button onClick={()=>handleCheckOut()}>Checkout</button> : <p>Add items to cart to checkout</p>}
+     </div>
 
     </div>
   )
