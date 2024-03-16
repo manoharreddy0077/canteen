@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const ConfirmCartItems = () => {
   const [insufficientItems,setInsufficientItems]=useState([])
   const navigate=useNavigate();
-  const cartItems=useSelector(state=>state.cart);
+  const cartItems=useSelector(state=>state.cart.items);
+  const cartTotal=useSelector(state=>state.cart.total)
   const handleCartChange=()=>{
     navigate('/MenuList')
   }
@@ -42,6 +43,9 @@ const ConfirmCartItems = () => {
         {cartItems.map(item=>(
           <li key={item._id}>{item.Item} ,-------   Rs{item.Price}/- ,  -------    {item.quan}  , ----- {item.canteen}</li>
         ))}
+      </div>
+      <div>
+          <p>cart Total : Rs. {cartTotal}</p>
       </div>
       <div>
         {insufficientItems.length > 0 && insufficientItems.map(({item})=>(

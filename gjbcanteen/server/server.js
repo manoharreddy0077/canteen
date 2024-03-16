@@ -54,12 +54,16 @@ rootReducerPromise.then((module) => {
     const authRouter = require('./routes/auth');
     const menuRouter = require('./routes/MenuList');
     const processCartRouter=require('./routes/processCart')
+    const reduceQuantityRouter=require('./routes/reduceQuantity')
+    const storeOrderRouter=require('./routes/storeOrder');
 
     const bodyParser = require('body-parser');
     app.use(bodyParser.json());
     app.use('/api', authRouter);
     app.use('/api', menuRouter);
     app.use('/api', processCartRouter);
+    app.use('/api',reduceQuantityRouter);
+    app.use('/api',storeOrderRouter);
     
     app.listen(port, () => {
         console.log(`server is running on port ${port}`);

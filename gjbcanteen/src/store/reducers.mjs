@@ -17,25 +17,39 @@ const authReducer = (state = initialState, action) => {
     }
 };
 
-const cartReducer = (state = [], action) => {
+const cartReducer = (state = {items:[],total:0}, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            const existingItem = state.find((cartItem) => cartItem.Item === action.payload.Item && cartItem.canteen === action.payload.canteen);
+            const existingItem = state.items.find((cartItem) => cartItem.Item === action.payload.Item && cartItem.canteen === action.payload.canteen);
             if (existingItem) {
                 // If item exists, update quantity
-                return state.map((cartItem) =>
-                    cartItem.Item === existingItem.Item && cartItem.canteen === action.payload.canteen ? { ...cartItem, quan: cartItem.quan + 1 } : cartItem
-                );
+                return {
+                    ...state,
+                    items:state.items.map((cartItem)=>
+                        cartItem.Item===existingItem.Item && cartItem.canteen === action.payload.canteen ? {...cartItem,quan:cartItem.quan+1}:cartItem
+                    ),
+                    total:state.total+action.payload.Price
+                };
             } else {
                 // If item doesn't exist, add it to cart with quantity 1
-                return [...state, { ...action.payload, quan: 1 }];
+                return {
+                    ...state,
+                    items:[...state.items,{...action.payload,quan:1}],
+                    total:state.total+action.payload.Price
+                }
             }
             case REMOVE_FROM_CART:
                 // console.log("in remove cart ")
-                const updatedCart=state.map((cartItem)=>
+                const updatedCart=state.items.map((cartItem)=>
                     cartItem.Item === action.payload.Item && cartItem.canteen === action.payload.canteen ? {...cartItem,quan:cartItem.quan-1} : cartItem
                 );
-                return updatedCart.filter((cartItem)=>cartItem.quan > 0);
+                const filteredCart=updatedCart.filter((cartItem)=>cartItem.quan > 0);
+                const totalPrice=filteredCart.reduce((acc,item)=>acc+item.Price * item.quan,0);
+                return {
+                    ...state,
+                    items:filteredCart,
+                    total:totalPrice
+                } ;
         default:
             return state;
     }

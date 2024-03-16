@@ -22,7 +22,7 @@ function App() {
               <Route path='/MenuList'Component={MenuList}></Route>
               <Route path='/ConfirmCartItems'Component={ConfirmCartItems}></Route>
               <Route path='/Payment'Component={Payment}></Route>
-              <Route path='/OrderDetailsDisplay'Component={OrderDetailsDisplay}></Route>
+              <Route path='/OrderDetailsDisplay/:orderNumber'Component={OrderDetailsDisplay}></Route>
             </Routes>
       </Router>
     </div>

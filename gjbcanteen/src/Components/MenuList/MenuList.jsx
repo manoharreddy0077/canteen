@@ -11,15 +11,17 @@ const MenuList = () => {
     const [canteen,setCanteen]=useState('');
     const [menuData,setMenuData]=useState([]);
     // const [cartItems,setcartItems]=useState([]);
-    
-    const username=useSelector(state=> state.username);
-    const cartItems=useSelector(state=>state.cart);
+    const [cartTotal,setCartTotal]=useState(0);
+    const username=useSelector(state=> state.auth.username);
+    const cartItems=useSelector(state=>state.cart.items);
     const dispatch=useDispatch();
-
-
    useEffect(()=>{
     fetchMenuData();
    },[canteen])
+
+   useEffect(()=>{
+    calculatecartTotal();
+   },[cartItems]);
     const fetchMenuData=async()=>{
       // setCanteen('C1Menu')
       try{
@@ -92,6 +94,13 @@ const MenuList = () => {
     const handleCheckOut=()=>{
       navigate('/ConfirmCartItems')
     }
+    const calculatecartTotal=()=>{
+      let total=0;
+      cartItems.forEach(item=>{
+        total +=item.Price * item.quan;
+      });
+      setCartTotal(total);
+    }
     
   return (
     <div>
@@ -109,7 +118,14 @@ const MenuList = () => {
       {cartItems.length > 0 ? renderCartItems() : <p>Empty Cart</p> }
      </div>
      <div>
-      {cartItems.length > 0 ? <button onClick={()=>handleCheckOut()}>Checkout</button> : <p>Add items to cart to checkout</p>}
+      {cartItems.length > 0 ? (
+        <>
+          <p>cart Total : Rs. {cartTotal}</p>
+          <button onClick={()=>handleCheckOut()}>Checkout</button>
+        </>
+      ):(
+        <p>Add items to cart to checkout</p>
+      )}
      </div>
 
     </div>
