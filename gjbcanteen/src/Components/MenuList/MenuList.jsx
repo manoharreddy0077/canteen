@@ -21,6 +21,9 @@ const MenuList = () => {
    useEffect(()=>{
     fetchMenuData();
    },[canteen])
+   useEffect(()=>{
+    fetchRedisData();
+   },[]);
 
    useEffect(()=>{
     calculatecartTotal();
@@ -153,6 +156,8 @@ const MenuList = () => {
           throw new Error('Failed to fetch Redis Data');
         }
         const data=await response.json();
+        console.log("here below is data");
+        console.log(data);
         setRedisData(data);
       }catch(error){
           console.error('Error fetching Redis data: ',error);
