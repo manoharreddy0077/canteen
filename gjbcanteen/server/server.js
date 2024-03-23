@@ -27,7 +27,7 @@ rootReducerPromise.then((module) => {
     const reduceQuantityRouter=require('./routes/reduceQuantity')
     const storeOrderRouter=require('./routes/storeOrder');
     const rollUpRouter=require('./routes/rollup');
-    const redisDataRouter=require('./routes/redis');
+    const recentOrdersRouter=require('./routes/recentOrders');
 
     const bodyParser = require('body-parser');
     app.use(bodyParser.json());
@@ -37,7 +37,7 @@ rootReducerPromise.then((module) => {
     app.use('/api',reduceQuantityRouter);
     app.use('/api',storeOrderRouter);
     app.use('/api',rollUpRouter);
-    app.use('/api',redisDataRouter);
+    app.use('/api',recentOrdersRouter)
     
     app.listen(port, () => {
         console.log(`server is running on port ${port}`);

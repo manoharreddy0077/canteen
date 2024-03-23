@@ -6,14 +6,13 @@ import { addToCart, removeFromCart } from '../../store/actions.mjs';
 import { useNavigate } from 'react-router-dom';
 import profile from './profile.jpeg'
 import { resetUsername,resetPassword } from '../../store/actions.mjs';
+import RecentOrders from './RecentOrders';
 
 const MenuList = () => {
     const navigate = useNavigate();
     const [canteen,setCanteen]=useState('');
     const [menuData,setMenuData]=useState([]);
-    const [rollupdata,setRollUpData]=useState({});
-    const [redisData,setRedisData]=useState({});
-    // const [cartItems,setcartItems]=useState([]);
+    const [recentOrdersData, setRecentOrdersData] = useState([]);
     const [cartTotal,setCartTotal]=useState(0);
     const username=useSelector(state=> state.auth.username);
     const cartItems=useSelector(state=>state.cart.items);
@@ -21,9 +20,6 @@ const MenuList = () => {
    useEffect(()=>{
     fetchMenuData();
    },[canteen])
-   useEffect(()=>{
-    fetchRedisData();
-   },[]);
 
    useEffect(()=>{
     calculatecartTotal();
@@ -46,16 +42,12 @@ const MenuList = () => {
     };
     const handleAddToCart = (item) => {
       const itemWithCanteen = { ...item, canteen: canteen };
-      // const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
-      // dispatch(addToCart(itemWithoutQuantity));
       dispatch(addToCart(itemWithCanteen));
     };
     const handleRemoveFromCart=(item)=>{
       const isItemInCart=cartItems.some(cartItem => cartItem.Item === item.Item && cartItem.canteen === canteen);
       if(isItemInCart){
         const itemWithCanteen = { ...item, canteen: canteen };
-        // const { Quantity, ...itemWithoutQuantity } = itemWithCanteen;
-        // dispatch(removeFromCart(itemWithoutQuantity));
         dispatch(removeFromCart(itemWithCanteen));
       }else{
           alert('item not in cart');
@@ -117,7 +109,6 @@ const MenuList = () => {
       }
     },[username,navigate]);
     const handleRollup=async()=>{
-      // console.log(JSON.stringify({username:username}))
       try{
         const response=await fetch(`http://localhost:3001/api/RollUp`,{
           method:'POST',
@@ -130,15 +121,9 @@ const MenuList = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch menu data');
         }
-        const data=await response.json();
-        setRollUpData(data);
-        console.log(data);
-        console.log(typeof data);
-        console.log(rollupdata);
-
-        const jsonData=JSON.stringify(data);
+        const allOrdersData=await response.json();
+        const jsonData=JSON.stringify(allOrdersData);
         if(jsonData!==''){
-          // navigate('/RollUpData');
           navigate(`/RollUpData?Orders=${encodeURIComponent(jsonData)}`);
         }
       }catch(error){
@@ -146,24 +131,30 @@ const MenuList = () => {
       }
     }
     useEffect(() => {
-      console.log(rollupdata);
-    }, [rollupdata]);
+      recentOrders();
+  }, []); // Fetch recent orders when component mounts
 
-    const fetchRedisData=async()=>{
+    const recentOrders=async()=>{
       try{
-        const response=await fetch('http://localhost:3001/api/redisData');
-        if(!response.ok){
-          throw new Error('Failed to fetch Redis Data');
+        const response=await fetch(`http://localhost:3001/api/recentOrders`,{
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json'
+          },
+         body:JSON.stringify({username:username})
+        
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch menu data');
         }
-        const data=await response.json();
-        console.log("here below is data");
-        console.log(data);
-        setRedisData(data);
+        const allOrdersData=await response.json();
+        setRecentOrdersData(allOrdersData);
+        // const jsonData=JSON.stringify(allOrdersData);
+        // setRecentOrdersData(jsonData);
       }catch(error){
-          console.error('Error fetching Redis data: ',error);
-        }
+        console.error('Error fetching menu data:', error);
       }
-    
+    }
   return (
     <div>
       {/* <h1>Welcome , {username} ra batta</h1> */}
@@ -195,14 +186,8 @@ const MenuList = () => {
       ):(
         <p>Add items to cart to checkout</p>
       )}
-      <div className='redisData'>
-        <button onClick={fetchRedisData}>Redis Data</button>
-          <h2>Recent Orders</h2>
-          {/* <ul>
-            {redisData.map((item,index)=>(
-              <li key={index}>{item}</li>
-            ))}
-          </ul> */}
+      <div className='recentOrders'>
+          <RecentOrders recentOrdersData={recentOrdersData}></RecentOrders>
       </div>
      </div>
     </div>
