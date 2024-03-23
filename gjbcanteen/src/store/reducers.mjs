@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, REMOVE_FROM_CART } from "./actions.mjs";
+import { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, REMOVE_FROM_CART,RESET_USERNAME, RESET_PASSWORD } from "./actions.mjs";
 
 const initialState = {
     username: '',
@@ -12,6 +12,10 @@ const authReducer = (state = initialState, action) => {
             return { ...state, username: action.payload };
         case SET_PASSWORD:
             return { ...state, password: action.payload };
+        case RESET_USERNAME:
+            return {...state,username:''};
+        case RESET_PASSWORD:
+            return {...state,password:''};
         default:
             return state;
     }

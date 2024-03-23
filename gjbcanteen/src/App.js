@@ -12,6 +12,7 @@ import ConfirmCartItems from './Components/ConfirmCartItems';
 import Payment from './Components/Payment';
 import OrderDetailsDisplay from './Components/OrderDetailsDisplay';
 import { combineReducers } from 'redux';
+import RollUpData from './Components/RollUpData';
 // import  store from './store/store'
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path='/ConfirmCartItems'Component={ConfirmCartItems}></Route>
               <Route path='/Payment'Component={Payment}></Route>
               <Route path='/OrderDetailsDisplay/:orderNumber'Component={OrderDetailsDisplay}></Route>
+              <Route path='/RollUpData' Component={RollUpData}></Route>
             </Routes>
       </Router>
     </div>
