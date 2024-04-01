@@ -1,19 +1,18 @@
-// import e from 'cors';
-// import cheerio from 'cheerio';
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import { addToCart, removeFromCart } from '../../store/actions.mjs';
 import { useNavigate } from 'react-router-dom';
-import profile from './profile.jpeg'
 import { resetUsername,resetPassword } from '../../store/actions.mjs';
 import RecentOrders from './RecentOrders';
+import Cart from './Cart';
+import User from './User'
 
 const MenuList = () => {
     const navigate = useNavigate();
     const [canteen,setCanteen]=useState('');
     const [menuData,setMenuData]=useState([]);
     const [recentOrdersData, setRecentOrdersData] = useState([]);
-    const [cartTotal,setCartTotal]=useState(0);
+    // const [cartTotal,setCartTotal]=useState(0);
     const username=useSelector(state=> state.auth.username);
     const cartItems=useSelector(state=>state.cart.items);
     const dispatch=useDispatch();
@@ -21,9 +20,7 @@ const MenuList = () => {
     fetchMenuData();
    },[canteen])
 
-   useEffect(()=>{
-    calculatecartTotal();
-   },[cartItems]);
+   
     const fetchMenuData=async()=>{
       // setCanteen('C1Menu')
       try{
@@ -79,25 +76,6 @@ const MenuList = () => {
         </table>
       )
     };
-    const renderCartItems=()=>{
-      return (
-      <ul>
-          {cartItems.map(item=>(
-              <li key={item._id}>{item.Item} ---- {item.Price}----Quantity:{item.quan}------Canteen:{item.canteen} </li>
-          ))}
-      </ul>
-      )
-    }
-    const handleCheckOut=()=>{
-      navigate('/ConfirmCartItems')
-    }
-    const calculatecartTotal=()=>{
-      let total=0;
-      cartItems.forEach(item=>{
-        total +=item.Price * item.quan;
-      });
-      setCartTotal(total);
-    }
     const handleLogOut=()=>{
       dispatch(resetUsername());
       dispatch(resetPassword());
@@ -157,13 +135,12 @@ const MenuList = () => {
     }
   return (
     <div>
-      {/* <h1>Welcome , {username} ra batta</h1> */}
       <div>
-        <img src={profile} alt="image" style={{ width: '100px', height: 'auto',borderRadius:'50%' }}/>
-        <span>{username}</span>
+        <User/>
+      </div>
+      <div>
         <button onClick={handleRollup}>Roll up</button>
         <button onClick={handleLogOut}>:LogOut</button>
-
       </div>
       <div>
       <button onClick={()=>setCanteen('C1Menu')}>Canteen 1</button>
@@ -175,21 +152,13 @@ const MenuList = () => {
       {menuData.length > 0 ?  renderMenuItems() :<p>No Menu </p>}
      </div>
      <div>
-      {cartItems.length > 0 ? renderCartItems() : <p>Empty Cart</p> }
+      {/* {cartItems.length > 0 ? renderCartItems() : <p>Empty Cart</p> } */}
+      <Cart/>
      </div>
-     <div>
-      {cartItems.length > 0 ? (
-        <>
-          <p>cart Total : Rs. {cartTotal}</p>
-          <button onClick={()=>handleCheckOut()}>Checkout</button>
-        </>
-      ):(
-        <p>Add items to cart to checkout</p>
-      )}
       <div className='recentOrders'>
           <RecentOrders recentOrdersData={recentOrdersData}></RecentOrders>
-      </div>
-     </div>
+      </div>      
+     
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
+import User from './MenuList/User';
 
 const RollUpData = () => {
     const location =useLocation();
@@ -46,6 +47,10 @@ const RollUpData = () => {
     const averageOrder=totalOrderPrice/totalOrders;
 
   return (
+    <div>
+        <div>
+            <User/>
+        </div>
      <div style={{display:'flex' , flexDirection:'row' ,justifyContent:'space-between'}}>
         <div style={{flex:'1',paddingRight:'20px',paddingLeft:'300px',overflowY:'scroll', textAlign:'left'}}>
             {orders.length !== 0 ? renderOrders() : <p>No past orders</p>}
@@ -57,6 +62,7 @@ const RollUpData = () => {
             <h2>Min Order: {minOrder}</h2>
             <h2>Average Order: {averageOrder}</h2>
         </div>
+     </div>
      </div> 
   )
 }

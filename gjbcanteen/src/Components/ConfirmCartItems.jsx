@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import User from './MenuList/User';
 
 const ConfirmCartItems = () => {
   const [insufficientItems,setInsufficientItems]=useState([])
@@ -37,6 +38,9 @@ const ConfirmCartItems = () => {
 
   return (
     <div>
+      <div>
+      <User/>
+      </div>
       <h1>Confirm cart details</h1>
       <div>
         <h2>Item              Price             Quantity                   Canteen</h2>

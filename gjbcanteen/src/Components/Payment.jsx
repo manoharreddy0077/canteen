@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import User from './MenuList/User';
 
 const Payment = () => {
   const cartItems=useSelector(state=>state.cart.items);
@@ -137,7 +138,9 @@ const Payment = () => {
   }
   return (
     <div>
-      <h1>payment cheyu ra unga {username}</h1>
+       <div>
+      <User/>
+      </div>
       <div>
         <h2>Item              Price             Quantity      canteen</h2>
         {cartItems.map(item=>(

@@ -1,9 +1,19 @@
 import React from 'react'
+import { useSelector,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
-
+import { addToCart,clearCart } from '../../store/actions.mjs';
 const RecentOrders = ({recentOrdersData}) => {
+    const cartItems=useSelector(state=>state.cart.items)
     const navigate=useNavigate();
-    const handleCheckOut=()=>{
+    const dispatch=useDispatch();
+    const handleCheckOut=(order)=>{
+        if(cartItems.length!==0){
+            dispatch(clearCart());
+        }
+        order.cartDetails.forEach(item=>{
+            const itemWithCanteen = { ...item, canteen: item.canteen };
+            dispatch(addToCart(itemWithCanteen));
+        }) 
         navigate('/ConfirmCartItems')
       }
     return (
@@ -22,7 +32,7 @@ const RecentOrders = ({recentOrdersData}) => {
                         ))}
                     </ul>
                     <p>Total Price :{calculateTotalPrice(order.cartDetails)}</p>
-                    <button onClick={()=>handleCheckOut()}>Checkout</button>
+                    <button onClick={()=>handleCheckOut(order)}>Checkout</button>
                 </div>
             ))}
         </div>

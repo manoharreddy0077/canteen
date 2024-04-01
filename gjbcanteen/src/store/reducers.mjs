@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, REMOVE_FROM_CART,RESET_USERNAME, RESET_PASSWORD } from "./actions.mjs";
+import { SET_USERNAME, SET_PASSWORD, ADD_TO_CART, REMOVE_FROM_CART,RESET_USERNAME, RESET_PASSWORD ,CLEAR_CART} from "./actions.mjs";
 
 const initialState = {
     username: '',
@@ -54,6 +54,13 @@ const cartReducer = (state = {items:[],total:0}, action) => {
                     items:filteredCart,
                     total:totalPrice
                 } ;
+            case CLEAR_CART:
+                return {
+                    ...state,
+                    items:[],
+                    total:0,
+                }
+
         default:
             return state;
     }

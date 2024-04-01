@@ -1,7 +1,7 @@
 const mongoose =require('mongoose');
 
 // mongoose.connect('mongodb://localhost:27017/seproject')
-mongoose.connect('mongodb+srv://manohar:1739Manohar@cluster0.mgyztqp.mongodb.net/gjb');
+mongoose.connect('mongodb://127.0.0.1:27017/gjb');
 
 
 
