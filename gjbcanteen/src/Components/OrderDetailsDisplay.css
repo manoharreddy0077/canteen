@@ -1,0 +1,161 @@
+.order-details-container {
+    margin: 20px;
+    background-color: aqua;
+    margin: 0px;
+  }
+  
+  .details-and-user {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .details {
+    width: 70%;
+  }
+  
+  .details-heading {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: red;
+  }
+  
+  .details-list {
+    margin-bottom: 20px;
+  }
+  
+  .details-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+  
+  .details-header span {
+    text-align: center;
+  }
+  
+  .details-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+  }
+  
+  .details-total {
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .details-timer {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .details-thank-you {
+    font-size: 38px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+  }
+  
+  .canteen {
+    margin-top: 20px;
+  }
+  
+  .canteen-heading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .canteen-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .canteen-item-heading {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+  }
+  
+  .canteen-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  
+  .canteen-item span {
+    flex-basis: 30%;
+  }
+  
+  .canteen-item span:first-child {
+    flex-basis: 40%;
+  }
+  
+  .user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    padding: 10px;
+  }
+  
+  .order-number {
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  .canteen {
+    margin-top: 20px;
+
+  }
+  
+  .canteen-block {
+    padding-bottom: 10px;
+  }
+  
+  .canteen-heading {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .canteen-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .canteen-item-heading {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+  }
+  
+  .canteen-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+  .canteen-item span {
+    text-align: center;
+  }
+  
+  

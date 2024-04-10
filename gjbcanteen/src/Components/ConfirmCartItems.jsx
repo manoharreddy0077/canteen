@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import User from './MenuList/User';
+import './ConfirmCart.css'
 
 const ConfirmCartItems = () => {
   const [insufficientItems,setInsufficientItems]=useState([])
@@ -37,31 +38,46 @@ const ConfirmCartItems = () => {
   };
 
   return (
-    <div>
-      <div>
-      <User/>
-      </div>
-      <h1>Confirm cart details</h1>
-      <div>
-        <h2>Item              Price             Quantity                   Canteen</h2>
-        {cartItems.map(item=>(
-          <li key={item._id}>{item.Item} ,-------   Rs{item.Price}/- ,  -------    {item.quan}  , ----- {item.canteen}</li>
+    <div className="confirm-cart-container">
+    <div className="confirm-cart">
+      <h1 className="confirm-cart-heading">Cart Overview</h1>
+      <div className="confirm-cart-items">
+        <div className="confirm-cart-item-heading">
+          <p>Items</p>
+          <p>Price</p>
+          <p>Quantity</p>
+          <p>Canteen</p>
+        </div>
+        {cartItems.map(item => (
+          <div className="confirm-cart-item" key={item._id}>
+            <p>{item.Item}</p>
+            <p>Rs {item.Price}</p>
+            <p>{item.quan}</p>
+            <p>{item.canteen}</p>
+          </div>
         ))}
       </div>
-      <div>
-          <p>cart Total : Rs. {cartTotal}</p>
+      <div className="confirm-cart-total">
+        <p>Cart Total: Rs {cartTotal}</p>
       </div>
-      <div>
-        {insufficientItems.length > 0 && insufficientItems.map(({item})=>(
-          <p key={item._id}>Insufficient quantity of {item.Item} ,only   {item.Quantity} are available , make changes to cart before proceeding to pay </p>
-        ))}
+      <div className="confirm-cart-insufficient">
+        {insufficientItems.length > 0 &&
+          insufficientItems.map(({ item }) => (
+            <p key={item._id}>
+              Insufficient quantity of {item.Item}, only {item.Quantity} are available, make changes to cart before proceeding to pay
+            </p>
+          ))}
       </div>
-      <div>
-        <button onClick={()=>handleCartChange()}>Make changes to cart</button>
-        <button onClick={()=>handlePay()}>Proceed to pay</button>
+      <div className="confirm-cart-buttons">
+        <button onClick={handleCartChange}>Modify Cart</button>
+        <button onClick={handlePay}>Proceed to pay</button>
       </div>
     </div>
-  )
-}
+      <div className="user-container">
+        <User />
+      </div>
+    </div>
+  );
+};
 
-export default ConfirmCartItems
+export default ConfirmCartItems;

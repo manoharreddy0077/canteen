@@ -1,0 +1,119 @@
+.menu_container {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+  }
+  
+  .MenuList {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+  .fullMenu{
+    display: flex;
+    flex-direction: column;
+  }
+  .canteenName_and_image{
+    width: 100%;
+  }
+  .CanteenButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+  }
+  
+  .CanteenButtons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .CanteenButtons button:hover {
+    background-color: #4dc9ff;
+    color: #ffffff;
+    border-color: #4dc9ff;
+  }
+  
+  
+  .canteen_images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .canteen_images img {
+    width: 60%;
+    height: 40vh;
+  }
+  
+  .MenuItems {
+    padding: 10px;
+    margin-top: 0px;
+  }
+  
+  .user_and_cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    padding: 10px;
+  }
+  .recentOrders {
+    margin-top: 20px;
+    width: 70%;
+  }
+
+  .menu-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+  
+  .menu-items {
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 10px;
+  }
+  
+  .menu-item-heading {
+    display: grid;
+    grid-template-columns: 1.2fr 1.1fr 1.1fr; /* Adjusted column widths */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+  }
+  
+  .menu-item {
+    display: grid;
+    grid-template-columns: 1.2fr 1.1fr 1.1fr; /* Adjusted column widths */
+    align-items: center;
+  }
+  
+  
+  .item-buttons button {
+    justify-content: space-evenly;
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: #763c0a;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #4dc9ff;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    margin: 5px;
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  .item-buttons button span {
+    font-weight: bold; /* Make "+" and "-" symbols bolder */
+}
+.item-in-cart {
+    background-color: #7FFF00; /* Green background color */
+  }
+  

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { setPassword, setUsername } from '../../store/actions.mjs';
 // import { useHistory } from 'react-router-dom';
 
-
+import './Login.css'
 const Login = () => {
   const navigate = useNavigate();
     // const history=useHistory();
@@ -56,18 +56,20 @@ const handleSubmit=async(e)=>{
 }
   return (
     <div>
-      <form onSubmit={handleSubmit} >
-        <h2>Already a User ? Login !!</h2>
-        <div >
+      <form onSubmit={handleSubmit}  className='login_form'>
+        <h2 className='form_heading'>Already a User ? Login !!</h2>
+        <div className="form_body">
+        <div className='form_element'>
             <label>Username :</label>
             <input type="text" name='username' value={FormData.username} onChange={handleChange}/>
         </div>
-        <div >
+        <div className='form_element'>
             <label>Password :</label>
             <input type="password" name='password' value={FormData.password} onChange={handleChange}/>
         </div>
-        <div>
+        <div className='form_button'>
             <button type='submit' >Login</button>
+        </div>
         </div>
       </form>
       {/* {isLoggedIn && <Link to="/MenuList">Go to MenuList</Link>} */}

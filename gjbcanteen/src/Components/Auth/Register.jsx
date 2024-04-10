@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useState } from 'react';
+import './Register.css'
 
 
 const Register = () => {
@@ -18,7 +19,7 @@ const Register = () => {
     if (name === 'username') {
       const usernameRegex = /^PES120210\d{4}$/;
 
-      if (!usernameRegex.test(value)) {
+      if (!usernameRegex.test(value) && value !== '') {
         setUsernameError('Username should start with PES120210 and end with a 4-digit number between 1000 and 3000');
       } else {
         setUsernameError('');
@@ -63,23 +64,25 @@ const Register = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} >
-        <h2>New User? Register!!</h2>
-        <div>
-          <div>
+      <form onSubmit={handleSubmit} className='form'>
+        <h2 className='form_heading'>New User? Register!!</h2>
+        <div className='form_body'>
+          <div className='form_element'>
             <label>Email: </label>
             <input type='email' name='email' value={FormData.email} onChange={handleChange} />
           </div>
-          <div >
-            <label>User Name: </label>
-            <input type='text' name='username' value={FormData.username} onChange={handleChange} />
+          <div className='form_element_2'>
+            <span className='form_element'>
+              <label>User Name: </label>
+              <input type='text' name='username' value={FormData.username} onChange={handleChange} />
+            </span>
             {usernameError && <p className='error'>{usernameError}</p>}
           </div>
-          <div >
+          <div className='form_element'>
             <label>Password: </label>
             <input type='password' name='password' value={FormData.password} onChange={handleChange} />
           </div>
-          <div >
+          <div className='form_button'>
             <button type='submit'>Register</button>
           </div>
         </div>

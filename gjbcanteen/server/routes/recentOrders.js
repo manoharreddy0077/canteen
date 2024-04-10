@@ -8,7 +8,6 @@ router.post('/recentOrders',async(req,res)=>{
     console.log(req.body.username);
     try{
         const orders=await Order.find({username:username})
-        .sort({createdAt:-1})
         .limit(3);
 
         res.json(orders);

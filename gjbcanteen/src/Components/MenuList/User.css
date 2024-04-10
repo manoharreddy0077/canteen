@@ -1,0 +1,58 @@
+.userContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .idCard {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 20vw;
+    margin: 10px;
+  }
+  
+  .profileSection {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profilePic {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .username {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .navButtons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navButtons button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    margin: 5px;
+  }
+  
+  .navButtons button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  
