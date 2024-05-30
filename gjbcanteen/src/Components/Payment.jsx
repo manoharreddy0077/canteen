@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import User from './MenuList/User';
 import './Payment.css'
+import Items from './Items';
 
 
 const Payment = () => {
@@ -141,25 +142,7 @@ const Payment = () => {
     <div className="payment-container">
       <div className="payment">
         <h1 className="payment-heading">Payment</h1>
-        <div className="payment-items">
-          <div className="payment-item-heading">
-            <p>Item</p>
-            <p>Price</p>
-            <p>Quantity</p>
-            <p>Canteen</p>
-          </div>
-          {cartItems.map(item => (
-            <div className="payment-item" key={item._id}>
-              <p>{item.Item}</p>
-              <p>Rs {item.Price}</p>
-              <p>{item.quan}</p>
-              <p>{item.canteen}</p>
-            </div>
-          ))}
-        </div>
-        <div className="payment-total">
-          <p>Cart Total: Rs {cartTotal}</p>
-        </div>
+        <Items/>
         <div className="payment-method">
           <h2>Select payment method</h2>
           <button onClick={handleUPIpayment}>UPI</button>

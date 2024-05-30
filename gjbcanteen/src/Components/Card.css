@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 16px;
+    background-color: aqua; /* Assuming this is the background color you want */
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px; /* Red2ced gap */
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 12%;
+    width: 140px;
+    height: auto; /* Adjusted height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed to start to make space for all details */
+    padding: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12% 12% 0 0;
+    object-fit: cover; /* Ensure the image fits well */
+}
+
+.details {
+    text-align: center;
+    padding: 4px 0; /* Added padding to ensure spacing */
+}
+
+.details > p {
+    margin: 2px 0; /* Reduced margin for better spacing */
+    font-size: 12px; /* Adjusted font size to fit better */
+}
+
+.itemname {
+    font-weight: bold;
+    font-size: 14px; /* Slightly larger font for item name */
+}
+
+.price, .quantity, .canteen {
+    font-weight: normal;
+    font-size: 12px; /* Adjusted font size */
+    word-wrap: break-word; /* Ensure text wraps properly */
+}

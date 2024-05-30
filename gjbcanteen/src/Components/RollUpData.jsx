@@ -25,26 +25,19 @@ const RollUpData = () => {
                     const cartTotal = calculateTotalPrice(order.cartDetails);
                     return (
                         <div className="order-details" key={index}>
-                            <h4>Order Number : {order.orderNumber}</h4>
+                            <h4 className="order-number">Order Number: {order.orderNumber}</h4>
                             <div className="order-items">
-                                <div className="order-items-headings">
-                                    <p>Items</p>
-                                    <p>Price</p>
-                                    <p>Quantity</p>
-                                    <p>Canteen</p>
-                                </div>
-                                <div className="order-items-list">
-                                    {order.cartDetails.map((item, idx) => (
-                                        <div className="order-item" key={idx}>
-                                            <p>{item.Item}</p>
-                                            <p>Rs.{item.Price}</p>
-                                            <p>{item.quan}</p>
-                                            <p>{item.canteen}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                                <p className="details-total">Cart Total: Rs.{cartTotal}/-</p>
+                                {order.cartDetails.map((item, idx) => (
+                                    <div className="order-item-card" key={idx}>
+                                        <p className="itemname">{item.Item}</p>
+                                        <p className="price">Rs.{item.Price}</p>
+                                        <p className="quantity">{item.quan}</p>
+                                        <p className="canteen">{item.canteen}</p>
+                                    </div>
+                                ))}
+                                
                             </div>
+                            <p className="details-total">Cart Total: Rs.{cartTotal}/-</p>
                         </div>
                     );
                 })}
@@ -55,6 +48,7 @@ const RollUpData = () => {
     const calculateTotalPrice = (cartDetails) => {
         return cartDetails.reduce((total, item) => total + (item.Price * item.quan), 0);
     };
+
     const totalOrders = orders.length;
     const totalOrderPrice = orders.reduce((total, order) => total + calculateTotalPrice(order.cartDetails), 0);
     const maxOrder = Math.max(...orders.map(order => calculateTotalPrice(order.cartDetails)));
@@ -69,18 +63,16 @@ const RollUpData = () => {
             <div className='orders-container'>
                 {orders.length !== 0 ? renderOrders() : <p>No past orders</p>}
             </div>
-            <div>
-                <div className="user-summary">
-                    <div>
-                        <User />
-                    </div>
-                    <div className="summary">
-                        <h2>Total Money Spent : {totalOrderPrice}</h2>
-                        <h2>Total Number of Orders :{totalOrders}</h2>
-                        <h2>max Order: {maxOrder}</h2>
-                        <h2>Min Order: {minOrder}</h2>
-                        <h2>Average Order: {averageOrder}</h2>
-                    </div>
+            <div className="user-summary">
+                <div>
+                    <User />
+                </div>
+                <div className="summary">
+                    <h2>Total Money Spent: {totalOrderPrice}</h2>
+                    <h2>Total Number of Orders: {totalOrders}</h2>
+                    <h2>Max Order: {maxOrder}</h2>
+                    <h2>Min Order: {minOrder}</h2>
+                    <h2>Average Order: {averageOrder}</h2>
                 </div>
             </div>
         </div>

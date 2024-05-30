@@ -2,7 +2,6 @@
     position: relative;
     background-color: aqua;
     width: 100vw;
-    
 }
 
 .rollup-heading p {
@@ -15,8 +14,6 @@
     padding-left: 10px; /* Adjust as needed */
     margin-top: 0px;
 }
-
-
 
 .orders-container {
     width: 65%;
@@ -35,44 +32,52 @@
     margin-top: 10px;
 }
 
-.order-items-headings {
+.order-items {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-items: center;
-    border-bottom: 1px solid black;
-    padding: 10px 0;
-    font-weight: bold;
+    grid-template-columns: repeat(5, 140px);
+    gap: 40px;
+
 }
 
-
-.order-items-headings p {
-    text-align: center;
-}
-
-.order-items-list {
+.order-item-card {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 12%;
     display: flex;
     flex-direction: column;
-}
-
-.order-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
-    border-bottom: 1px solid black;
-    padding: 10px 0;
+    justify-content: flex-start;
+    padding: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 140px;
 }
 
-.order-item p {
-    flex: 1;
+.order-item-card p {
+    margin: 2px 0;
     text-align: center;
-    margin: 0;
+}
+
+.itemname {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.price, .quantity, .canteen {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.details-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .summary {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     margin-top: 20px;
     width: 30vw;
     margin: 20px;
@@ -81,12 +86,4 @@
 .summary h2 {
     margin: 10px 0;
     font-size: 18px;
-    
 }
-.details-total {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
