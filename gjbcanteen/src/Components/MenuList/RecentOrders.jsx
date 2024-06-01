@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addToCart, clearCart } from '../../store/actions.mjs';
 import './RecentOrders.css';
 
 const RecentOrders = ({ recentOrdersData }) => {
+    const [selectedOrder, setSelectedOrder] = useState(null);
     const cartItems = useSelector(state => state.cart.items);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -20,36 +21,48 @@ const RecentOrders = ({ recentOrdersData }) => {
         navigate('/ConfirmCartItems');
     };
 
+    const closeModal = () => {
+        setSelectedOrder(null);
+    };
+
     return (
-        <div className="recent-orders-container-unique">
+        <div className="recent-orders-container">
             <h1>Recent Orders</h1>
-            {recentOrdersData.map((order, index) => (
-                <div className="order-details-unique" key={index}>
-                    <h4>Order Number: {order.orderNumber}</h4>
-                    <div className="order-items-unique">
-                        <div className="order-items-headings-unique">
-                            <div className="menu-heading-unique"><p>Items</p></div>
-                            <div className="menu-heading-unique"><p>Price</p></div>
-                            <div className="menu-heading-unique"><p>Quantity</p></div>
-                            <div className="menu-heading-unique"><p>Canteen</p></div>
+            <ul className="orders-list">
+                {recentOrdersData.map((order, index) => (
+                    <li key={index} onClick={() => setSelectedOrder(order)}>
+                        Order Number: {order.orderNumber}
+                    </li>
+                ))}
+            </ul>
+            {selectedOrder && (
+                <Modal order={selectedOrder} handleCheckOut={handleCheckOut} closeModal={closeModal} />
+            )}
+        </div>
+    );
+};
+
+const Modal = ({ order, handleCheckOut, closeModal }) => {
+    return (
+        <div className="modal">
+            <div className="modal-content">
+                <span className="close" onClick={closeModal}>&times;</span>
+                <h4>Order Number: {order.orderNumber}</h4>
+                <div className="order-items">
+                    {order.cartDetails.map((item, idx) => (
+                        <div className="order-item" key={idx}>
+                            <p><strong>Item:</strong> {item.Item}</p>
+                            <p><strong>Price:</strong> Rs.{item.Price}</p>
+                            <p><strong>Quantity:</strong> {item.quan}</p>
+                            <p><strong>Canteen:</strong> {item.canteen}</p>
                         </div>
-                        <div className="order-items-list-unique">
-                            {order.cartDetails.map((item, idx) => (
-                                <div className="order-item-unique" key={idx}>
-                                    <p>{item.Item}</p>
-                                    <p>Rs.{item.Price}</p>
-                                    <p>{item.quan}</p>
-                                    <p>{item.canteen}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="total-checkout-unique">
-                        <p>Total Price: Rs. {calculateTotalPrice(order.cartDetails)}</p>
-                        <button onClick={() => handleCheckOut(order)}>CheckOut</button>
-                    </div>
+                    ))}
                 </div>
-            ))}
+                <div className="order-total">
+                    <p>Total Price: Rs. {calculateTotalPrice(order.cartDetails)}</p>
+                    <button onClick={() => handleCheckOut(order)}>CheckOut</button>
+                </div>
+            </div>
         </div>
     );
 };

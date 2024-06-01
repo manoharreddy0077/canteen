@@ -2,23 +2,25 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: aqua;
+    background: linear-gradient(to right, #00BCD4, #009688); /* Update background to gradient */
     width: 100vw;
-    height: 100vh;
+    margin: 0px;
+    padding-left: 10px;
 }
 
 .confirm-cart-items {
-    width: 70%;
+    width: 75vw;
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 .confirm-cart-heading {
     font-size: 42px;
     font-weight: 900;
     margin-bottom: 20px;
-    color: red;
+    color: #ffffff;
+    text-decoration: underline;
+    padding-left: 10px;
+    margin-top: 0;
 }
 
 .confirm-cart-item {
@@ -35,8 +37,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     font-size: 18px;
-
 }
+
 .confirm-cart-total {
     margin-top: 20px;
     font-size: 18px;
@@ -68,18 +70,45 @@
     color: #fff;
     transition: 0.3s ease;
 }
-.confirm-cart{
+
+.confirm-cart {
     width: 75vw;
-    height: 100vh;
 }
 
-.user-container{
+.user-container {
     position: absolute;
     top: 0;
     right: 0;
     width: 35%;
     padding: 10px;
 }
-/* .card-container{
-    width: 80%;
-} */
+
+@media (max-width: 768px) {
+    .confirm-cart-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .confirm-cart {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .confirm-cart-heading {
+        font-size: 32px; /* Adjust font size for smaller screens */
+        width: 100%; /* Occupy full width */
+        text-align: center; /* Center align text */
+    }
+
+    .confirm-cart-buttons button {
+        width: 45vw; /* Adjust button width for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .user-container {
+        width: 90%; /* Adjust width for smaller screens */
+        padding: 10px;
+        margin-top: 20px; /* Add margin to separate user component */
+        display: none;
+    }
+}

@@ -63,8 +63,8 @@ const MenuList = () => {
               <p className="price">Price: Rs {item.Price}</p>
               <p className="canteen">Canteen: {canteen}</p>
               <div className="item-buttons">
-                <button  className='addtocart'onClick={() => handleAddToCart(item)}>Add</button>
-                <button className='removefromcart' onClick={() => handleRemoveFromCart(item)}>Remove</button>
+                <button className='addtocart' onClick={() => handleAddToCart(item)}>Add</button>
+                {/* <button className='removefromcart' onClick={() => handleRemoveFromCart(item)}>Remove</button> */}
               </div>
             </div>
           </div>
@@ -96,6 +96,10 @@ const MenuList = () => {
     }
   };
 
+  const handleViewCart = () => {
+    navigate('/cart'); // Redirect to the cart page
+  };
+
   return (
     <div className='menu_container'>
       <div className='MenuList'>
@@ -122,6 +126,7 @@ const MenuList = () => {
             <Cart />
           </div>
         </div>
+        <button className="view-cart-button" onClick={handleViewCart}>View Cart</button>
       </div>
       <div className='recentOrders'>
         <RecentOrders recentOrdersData={recentOrdersData}></RecentOrders>

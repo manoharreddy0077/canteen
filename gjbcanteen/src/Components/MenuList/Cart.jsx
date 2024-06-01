@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { removeFromCart } from '../../store/actions.mjs';
 import './Cart.css';
-// import { ReactComponent as CartIcon } from './cart-icon.svg'; // Make sure you have an SVG file for the cart icon
+// import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+// import { ShoppingBagOutlined } from '@mui/icons-material';
 
 const Cart = () => {
   const [cartTotal, setCartTotal] = useState(0);
@@ -36,7 +37,7 @@ const Cart = () => {
     <div className="cart-container">
       <div className="cart-items">
         <div className="cart-heading">
-          {/* <CartIcon className="cart-icon" /> */}
+          {/* <ShoppingBagOutlined className="cart-icon" /> */}
           <h2>Cart Items</h2>
         </div>
         <div className="card-container-cart">
@@ -57,7 +58,7 @@ const Cart = () => {
       <div className="cart-summary">
         {cartItems.length > 0 ? (
           <div className='total-checkout'>
-            <p>Cart Total: Rs. {cartTotal}</p>
+            <p>Cart Total: Rs. {cartTotal}/-</p>
             <button className="checkout-button" onClick={handleCheckOut}><p>Checkout</p></button>
           </div>
         ) : (

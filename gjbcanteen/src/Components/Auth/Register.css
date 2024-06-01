@@ -1,68 +1,132 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #00BCD4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .form {
-    background-color: antiquewhite;
-    width: 70%;
-    height: 60vh;
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
     margin: auto;
-    border-radius: 0% 30%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form_heading {
     padding-top: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form_body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .form_element {
-    /* background-color: rgb(137, 137, 43); */
-    width: 80%;
-    height: 80px;
-    margin: auto;
-    margin-top: 4px;
-    display: flex;
-}
-
-.form_element_2 {
     width: 100%;
-    min-height: 80px;
-    margin: auto;
-    margin-top: 4px;
     display: flex;
     flex-direction: column;
 }
 
 .form_element label {
-    display: block;
-    width: 30%;
-    height: 50%;
-    margin: auto auto;
-    /* background-color: aqua; */
-    align-content: center;
-
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
 }
+
 .form_element input {
-    display: block;
-    width: 65%;
-    height: 50%;
-    margin: auto auto;
-    /* background-color: aqua; */
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
 }
 
 .error {
     color: red;
     font-size: small;
-    width: 100%;
-    margin-top: 0%;
+    margin-top: 5px;
 }
 
-.form_button  {
+.form_button {
+    display: flex;
+    justify-content: center;
     margin-top: 15px;
 }
 
-.form_button button{
-    padding: 12px;
-    background-color: aqua;
+.form_button button {
+    padding: 10px 20px;
+    background-color: #008C9E;
     border: none;
     border-radius: 10px;
-    font-size: medium;
+    font-size: 16px;
     font-weight: 600;
-    margin-left: 60%;
+    color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form_button button:hover {
+    background-color: #006F79;
+}
+
+.login_prompt {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.login_prompt a {
+    color: #008C9E;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login_prompt a:hover {
+    color: #006F79;
+}
+
+
+@media (max-width: 600px) {
+    .form {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .form_heading {
+        font-size: 20px;
+    }
+
+    .form_element label {
+        font-size: 14px;
+    }
+
+    .form_element input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .form_button button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .login_prompt {
+        font-size: 12px;
+    }
 }

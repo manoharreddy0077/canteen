@@ -17,6 +17,12 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    color: black;
+    text-decoration: underline;
+    width: 75vw;
+    margin-top: 0;
   }
   
   .cart-icon {
@@ -98,24 +104,36 @@ body {
   }
   
   .total-checkout p {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 900;
+
   }
   
   .checkout-button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
     padding: 10px 20px;
+    background-color: #008C9E;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   .checkout-button > P{
-    color: black;
+    color: #fff;
     margin: 0px;
+    font-size: 16px;
+    font-weight: 600;
   }
   
   .checkout-button:hover {
-    background-color: #388e3c;
+    background-color: #006F79;
   }
   
+
+  @media only screen and (min-width: 600px) {
+    .card-container-cart {
+        grid-template-columns: repeat(3, 1fr); /* Adjusted back to three columns */
+    }
+}

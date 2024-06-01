@@ -1,80 +1,159 @@
-.recent-orders-container-unique {
-    background-color: azure;
-    width: 40vw;
-    margin-left: 80px;
+.recent-orders-container {
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
     border-radius: 10px;
-    height: auto;
 }
 
-.order-details-unique {
-    display: grid;
-    margin: 20px;
-}
-
-.order-items-unique {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.order-items-headings-unique {
-    display: grid;
-    grid-template-columns: 1.2fr 1.5fr 1.1fr 1.1fr;
-}
-
-.order-item-unique {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex: 1;
-    margin: 0px;
-    border-bottom: 1px solid black;
-}
-
-.order-items-list-unique {
-    display: grid;
-    grid-template-columns: 2fr;
-}
-
-.order-items-unique {
-    margin: 2px;
-}
-
-.recent-orders-container-unique h1 {
-    font-weight: 900;
-}
-
-.order-details-unique h4 {
-    font-size: 20px;
-    font-weight: 600;
-    color: red;
+.recent-orders-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
     text-decoration: underline;
-    margin-top: 10px;
-    margin-bottom: 2px;
 }
 
-.menu-heading-unique p {
-    font-size: 16px;
+.orders-list {
+    list-style: none;
+    padding: 0;
 }
 
-.total-checkout-unique p {
+.orders-list li {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.orders-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.order-items {
+    margin-bottom: 10px;
+}
+
+.order-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.order-item p {
+    margin: 5px 0;
+}
+
+.order-total p {
     font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.order-total button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
     font-weight: 600;
 }
 
-.total-checkout-unique button {
-    border-radius: 10px;
-    padding: 15px;
-    width: 10vw;
-    font-weight: 700;
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    margin-bottom: 6px;
+.order-total button:hover {
+    background-color: #4CAF50;
 }
 
-.total-checkout-unique button:hover {
-    background-color: #000;
-    color: #fff;
-    transition: 0.3s ease;
+
+@media (max-width: 768px) {
+    .recent-orders-container {
+        width: 90%; /* Adjusted width for smaller screens */
+        padding: 10px;
+    }
+
+    .orders-list li {
+        padding: 10px;
+        font-size: 14px; /* Adjusted font size for smaller screens */
+    }
+
+    .modal-content {
+        width: 90%; /* Adjusted width for smaller screens */
+        padding: 10px;
+    }
+
+    .order-total p {
+        font-size: 16px; /* Adjusted font size for smaller screens */
+    }
+
+    .order-total button {
+        padding: 8px 16px;
+        font-size: 14px; /* Adjusted font size for smaller screens */
+    }
+
+    .close {
+        font-size: 18px; /* Adjusted font size for smaller screens */
+    }
+}
+
+
+@media (max-width: 480px) {
+    .recent-orders-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .orders-list li {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .order-total p {
+        font-size: 14px;
+    }
+
+    .order-total button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .close {
+        font-size: 16px;
+    }
 }

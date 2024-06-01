@@ -1,11 +1,8 @@
-
-import React from 'react';
-import { useState } from 'react';
-import './Register.css'
-
+import React, { useState } from 'react';
+import './Register.css';
 
 const Register = () => {
-  const [FormData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     email: '',
     username: '',
     password: '',
@@ -27,7 +24,7 @@ const Register = () => {
     }
 
     setFormData({
-      ...FormData,
+      ...formData,
       [name]: value,
     });
   };
@@ -45,7 +42,7 @@ const Register = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(FormData),
+        body: JSON.stringify(formData),
       });
       if (response.ok) {
         alert('Success');
@@ -68,24 +65,25 @@ const Register = () => {
         <h2 className='form_heading'>New User? Register!!</h2>
         <div className='form_body'>
           <div className='form_element'>
-            <label>Email: </label>
-            <input type='email' name='email' value={FormData.email} onChange={handleChange} />
+            <label>Email:</label>
+            <input type='email' name='email' value={formData.email} onChange={handleChange} />
           </div>
-          <div className='form_element_2'>
-            <span className='form_element'>
-              <label>User Name: </label>
-              <input type='text' name='username' value={FormData.username} onChange={handleChange} />
-            </span>
+          <div className='form_element'>
+            <label>Username:</label>
+            <input type='text' name='username' value={formData.username} onChange={handleChange} />
             {usernameError && <p className='error'>{usernameError}</p>}
           </div>
           <div className='form_element'>
-            <label>Password: </label>
-            <input type='password' name='password' value={FormData.password} onChange={handleChange} />
+            <label>Password:</label>
+            <input type='password' name='password' value={formData.password} onChange={handleChange} />
           </div>
           <div className='form_button'>
             <button type='submit'>Register</button>
           </div>
         </div>
+        {/* <div className='login_prompt'>
+          Already a User? <a href='/login'>Login</a>
+        </div> */}
       </form>
     </div>
   );

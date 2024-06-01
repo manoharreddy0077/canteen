@@ -13,6 +13,9 @@ import Payment from './Components/Payment';
 import OrderDetailsDisplay from './Components/OrderDetailsDisplay';
 import { combineReducers } from 'redux';
 import RollUpData from './Components/RollUpData';
+
+import Items from './Components/Items';
+import CartPage from './Components/MenuList/CartPage';
 // import  store from './store/store'
 function App() {
   return (
@@ -25,6 +28,7 @@ function App() {
               <Route path='/Payment'Component={Payment}></Route>
               <Route path='/OrderDetailsDisplay/:orderNumber'Component={OrderDetailsDisplay}></Route>
               <Route path='/RollUpData' Component={RollUpData}></Route>
+              <Route path='/cart' Component={CartPage}></Route>
             </Routes>
       </Router>
     </div>

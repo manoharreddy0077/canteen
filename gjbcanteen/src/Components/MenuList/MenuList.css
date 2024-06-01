@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     background-color: #00BCD4; 
+    
   }
   
   .MenuList {
@@ -14,7 +15,8 @@
     flex-direction: column;
   }
   .canteenName_and_image{
-    width: 100%;
+    width: 90%;
+    margin-left: 40px;
   }
   .CanteenButtons {
     display: flex;
@@ -128,4 +130,65 @@
     background-color: #f44336;
     color: white;
   }
+.view-cart-button{
+  display: none;
+}
   
+ /* For MenuList */
+/* For MenuList */
+/* For MenuList */
+@media (max-width: 780px) {
+  .MenuList {
+    flex-direction: column; /* Adjusted flex direction for smaller screens */
+  }
+
+  .user {
+    display: none; /* Hide the user component on smaller screens */
+  }
+
+  .cart-container {
+    display: none; /* Hide the cart container on smaller screens */
+  }
+
+  .user_and_cart {
+    display: none; /* Hide the user and cart container on smaller screens */
+  }
+
+  .view-cart-button {
+    display: block; /* Display the button */
+    width: 100%; /* Occupy full width */
+    padding: 10px;
+    background-color: #008C9E;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .card-container {
+   display: grid;
+   grid-template-columns: repeat(2,2fr);
+   
+  }
+
+  .card {
+    margin: 2px;
+    width: 100%;
+  }
+
+  /* Adjusted width for smaller screens */
+  @media (max-width: 480px) {
+    .card {
+      width: calc(50% - 10px); /* Set width to 50% minus spacing */
+    }
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .card-container-cart {
+      grid-template-columns: repeat(3, 1fr); /* Adjusted back to three columns */
+  }
+}

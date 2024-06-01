@@ -6,36 +6,34 @@ import store from '../../store/store'
 import { Provider } from 'react-redux'
 import './Auth.css'
 
-
 const Auth = () => {
+  const [showRegister, setShowRegister] = useState(false);
 
-  const [showRegister,setShowRegister]=useState(false);
-
-  const handleSwitchToLogin=()=>{
+  const handleSwitchToLogin = () => {
     setShowRegister(false);
   }
-  const handleSwitchToRegister=()=>{
+  const handleSwitchToRegister = () => {
     setShowRegister(true);
   }
   return (
     <Provider store={store}>
       <div className='LoginPage'>
-       <span className='left'>
-        {showRegister ? ( <Register/>) :(<Login/>)}
-        {showRegister ? (
-          <p>
-            Already a User?{''}
-            <a href="#" onClick={handleSwitchToLogin}>Login</a>
-          </p>
-        ):(
-          <p>
-             Not an User?{' '}
+        <div className='left'>
+          {showRegister ? (<Register />) : (<Login />)}
+          {showRegister ? (
+            <p className="switch_prompt">
+              Already a User?{''}
+              <a href="#" onClick={handleSwitchToLogin}>Login</a>
+            </p>
+          ) : (
+            <p className="switch_prompt">
+              Not an User?{' '}
               <a href="#" onClick={handleSwitchToRegister}>
                 Register first
               </a>
-          </p>
-        )}
-        </span>
+            </p>
+          )}
+        </div>
       </div>
     </Provider>
   )

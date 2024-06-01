@@ -43,22 +43,6 @@ const ConfirmCartItems = () => {
     <div className="confirm-cart-container">
       <div className="confirm-cart">
         <h1 className="confirm-cart-heading">Cart Overview</h1>
-        {/* <div className="card-container">
-          {cartItems.map(item => (
-            <div className="card" key={item._id}>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfY2kZ_onsFqgRgPSXQB8r6mgxOKkZb6IcRercJSVeAPvnVV7anEzbCAqWhgYy3bbinxE" alt="Food Item" />
-              <div className="details">
-                <p className="itemname">{item.Item}</p>
-                <p className="price">Price: Rs {item.Price}</p>
-                <p className="quantity">Quantity: {item.quan}</p>
-                <p className="canteen">Canteen: {item.canteen}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="confirm-cart-total">
-          <p>Cart Total: Rs {cartTotal}</p>
-        </div> */}
        <Items/>
         <div className="confirm-cart-insufficient">
           {insufficientItems.length > 0 &&
