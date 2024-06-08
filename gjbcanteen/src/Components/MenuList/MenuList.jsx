@@ -22,9 +22,19 @@ const MenuList = () => {
   }, [canteen]);
 
   const fetchMenuData = async () => {
+    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    console.log('Retrieved token:', token); // Log the token to check if it's retrieved correctly
+
+    if (!token) {
+      throw new Error('No token found');
+    }
     try {
       const response = await fetch(`http://localhost:3001/api/MenuList?canteen=${canteen}`, {
         method: 'POST',
+        // headers: {
+        //   'Content-Type': 'application/json',
+        //   'Authorization': `Bearer ${token}` // Send token in the Authorization header
+        // },
         body: JSON.stringify({ canteen: canteen })
       });
       if (!response.ok) {
@@ -34,6 +44,9 @@ const MenuList = () => {
       setMenuData(data);
     } catch (error) {
       console.error('Error fetching menu data:', error);
+    if (error.message === 'No token found') {
+      navigate('/login'); // Redirect to login page if no token is found
+    }
     }
   };
 

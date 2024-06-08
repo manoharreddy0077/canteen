@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setPassword, setUsername } from '../../store/actions.mjs';
 import './Login.css';
-// import { LoginSharp } from '@mui/icons-material';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,21 +24,27 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:3001/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(FormData),
-    });
+    try {
+      const response = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(FormData),
+      });
 
-    if (response.ok) {
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      const data = await response.json();
+      localStorage.setItem('token', data.token); // Store token in localStorage
       setIsLoggedIn(true);
       dispatch(setUsername(FormData.username));
       dispatch(setPassword(FormData.password));
       navigate('/MenuList');
-    } else {
-      alert("Incorrect credentials");
+    } catch (error) {
+      alert('Incorrect credentials');
       setError('Wrong username or password. Please try again');
     }
   };
@@ -62,9 +67,6 @@ const Login = () => {
             <button type='submit'>Login</button>
           </div>
         </div>
-        {/* <div className='login_prompt'>
-          Not an User? <Link to='/register'>Register first</Link>
-        </div> */}
       </form>
     </div>
   );
