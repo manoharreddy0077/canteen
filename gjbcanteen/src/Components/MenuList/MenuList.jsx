@@ -119,9 +119,9 @@ const MenuList = () => {
         <div className="fullMenu">
           <div className="canteenName_and_image">
             <div className='CanteenButtons'>
-              <button onClick={() => setCanteen('C1Menu')}> <span> Food Court </span></button>
-              <button onClick={() => setCanteen('C2Menu')}> <span>Halli Mane</span> </button>
-              <button onClick={() => setCanteen('C3Menu')}> <span>Chineese </span></button>
+              <button onClick={() => setCanteen('C1')}> <span> Food Court </span></button>
+              <button onClick={() => setCanteen('C2')}> <span>Halli Mane</span> </button>
+              <button onClick={() => setCanteen('C3')}> <span>Chineese </span></button>
             </div>
             <div className='canteen-names'>
               <h2>{canteen}</h2>

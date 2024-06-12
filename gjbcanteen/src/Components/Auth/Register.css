@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #00BCD4;
@@ -46,7 +47,7 @@ body {
     color: #333;
 }
 
-.form_element input {
+.form_element input, .form_element select {
     padding: 10px;
     width: 100%;
     border: 1px solid #ccc;
@@ -101,7 +102,6 @@ body {
     color: #006F79;
 }
 
-
 @media (max-width: 600px) {
     .form {
         width: 95%;
@@ -116,7 +116,7 @@ body {
         font-size: 14px;
     }
 
-    .form_element input {
+    .form_element input, .form_element select {
         padding: 8px;
         font-size: 14px;
     }

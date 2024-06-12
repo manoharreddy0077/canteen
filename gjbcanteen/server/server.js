@@ -30,6 +30,7 @@ rootReducerPromise.then((module) => {
     const storeOrderRouter = require('./routes/storeOrder');
     const rollUpRouter = require('./routes/rollup');
     const recentOrdersRouter = require('./routes/recentOrders');
+    const dashboardRouter=require('./routes/adminroutes/dashboard')
 
     const bodyParser = require('body-parser');
     app.use(bodyParser.json());
@@ -40,6 +41,8 @@ rootReducerPromise.then((module) => {
     app.use('/api', storeOrderRouter);
     app.use('/api', rollUpRouter);
     app.use('/api', recentOrdersRouter);
+    // app.use('/api', dashboardRouter);
+
 
     app.listen(port, () => {
         console.log(`Server is running on port ${port}`);

@@ -16,6 +16,8 @@ import RollUpData from './Components/RollUpData';
 
 import Items from './Components/Items';
 import CartPage from './Components/MenuList/CartPage';
+import Dashboard from './Components/Dashboards/Dashboard';
+
 // import  store from './store/store'
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
               <Route path='/OrderDetailsDisplay/:orderNumber'Component={OrderDetailsDisplay}></Route>
               <Route path='/RollUpData' Component={RollUpData}></Route>
               <Route path='/cart' Component={CartPage}></Route>
+              <Route path="/dashboard" element={<Dashboard/>} />
             </Routes>
       </Router>
     </div>

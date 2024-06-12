@@ -36,13 +36,13 @@ const Login = () => {
       if (!response.ok) {
         throw new Error('Login failed');
       }
-
       const data = await response.json();
       localStorage.setItem('token', data.token); // Store token in localStorage
       setIsLoggedIn(true);
       dispatch(setUsername(FormData.username));
       dispatch(setPassword(FormData.password));
-      navigate('/MenuList');
+      // Navigate to the appropriate dashboard based on the username
+      navigate(data.redirectUrl);
     } catch (error) {
       alert('Incorrect credentials');
       setError('Wrong username or password. Please try again');

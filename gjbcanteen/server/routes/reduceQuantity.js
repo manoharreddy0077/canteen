@@ -13,13 +13,13 @@ router.post('/reduceQuantity',async(req,res)=>{
 
             let MenuModel;
             switch(canteen){
-                case 'C1Menu':
+                case 'C1':
                     MenuModel=C1Menu;
                     break;
-                case 'C2Menu':
+                case 'C2':
                     MenuModel=C2Menu;
                     break;
-                case 'C3Menu':
+                case 'C3':
                     MenuModel=C3Menu;
                     break;
                 default:

@@ -17,13 +17,13 @@ router.post('/MenuList' ,async(req,res)=>{
     try{
         let collection;
         switch(canteen){
-            case 'C1Menu':
+            case 'C1':
                 collection=C1MenuList;
                 break;
-            case 'C2Menu':
+            case 'C2':
                 collection=C2MenuList;
                 break;
-            case 'C3Menu':
+            case 'C3':
                 collection=C3MenuList;
                 break;
             default:

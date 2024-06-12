@@ -7,9 +7,9 @@ import Items from './Items';
 
 // Mock data for canteen addresses (replace with actual data source if available)
 const canteenAddresses = {
-  "C1Menu": "Banshankari 3rd stage hosakerehalli pes college, ring road campus boys hostel 560085",
-  "C2Menu": "Banshankari 3rd stage hosakerehalli pes college, ring road campus boys hostel 560085",
-  "C3Menu": "Banshankari 3rd stage hosakerehalli pes college, ring road campus boys hostel 560089",
+  "C1": "Banshankari 3rd stage hosakerehalli pes college, ring road campus boys hostel 560085",
+  "C2": "Banshankari 3rd stage hosakerehalli pes college, ring road campus boys hostel 560085",
+  "C3": "Banshankari 3rd stage hosakerehalli pes college, ring road campus boys hostel 560089",
   // Add more canteen addresses as needed
 };
 
