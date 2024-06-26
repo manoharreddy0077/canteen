@@ -15,6 +15,7 @@
     "env": {
       "JWT_SECRET": "fHdPi2\"O:5{Qb7*",
       "MONGODB_URL": "mongodb://127.0.0.1:27017/gjb"
-    }
+    },
+        "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
   }
   
