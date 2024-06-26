@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "server/server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "server/server.js"
+      }
+    ],
+    "env": {
+      "JWT_SECRET": "fHdPi2\"O:5{Qb7*",
+      "MONGODB_URL": "mongodb://127.0.0.1:27017/gjb"
+    }
+  }
+  
