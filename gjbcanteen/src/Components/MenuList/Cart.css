@@ -1,12 +1,4 @@
-body {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100vh;
-    margin: 0;
-    padding: 16px;
-    background-color: #00BCD4; /* Assuming this is the background color you want */
-  }
+/* 
   
   .cart-container {
     display: flex;
@@ -34,18 +26,18 @@ body {
   .card-container-cart {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4px; /* Reduced gap */
+    gap: 4px; 
   }
   
   .card {
     border: 1px solid black;
     border-radius: 12%;
     width: 140px;
-    height: auto; /* Adjusted height */
+    height: auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Changed to start to make space for all details */
+    justify-content: flex-start;
     padding: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #f0f0f0;
@@ -55,28 +47,28 @@ body {
     width: 100%;
     height: auto;
     border-radius: 12% 12% 0 0;
-    object-fit: cover; /* Ensure the image fits well */
+    object-fit: cover; 
   }
   
   .details {
     text-align: center;
-    padding: 4px 0; /* Added padding to ensure spacing */
+    padding: 4px 0; 
   }
   
   .details > p {
-    margin: 2px 0; /* Reduced margin for better spacing */
-    font-size: 12px; /* Adjusted font size to fit better */
+    margin: 2px 0; 
+    font-size: 12px; 
   }
   
   .itemname {
     font-weight: bold;
-    font-size: 14px; /* Slightly larger font for item name */
+    font-size: 14px; 
   }
   
   .price, .quantity, .canteen {
     font-weight: normal;
-    font-size: 12px; /* Adjusted font size */
-    word-wrap: break-word; /* Ensure text wraps properly */
+    font-size: 12px; 
+    word-wrap: break-word; 
   }
   
   .remove-button {
@@ -134,6 +126,7 @@ body {
 
   @media only screen and (min-width: 600px) {
     .card-container-cart {
-        grid-template-columns: repeat(3, 1fr); /* Adjusted back to three columns */
+        grid-template-columns: repeat(3, 1fr); 
     }
-}
+} */
+

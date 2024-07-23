@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+
+
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { clearState } from '../../store/actions.mjs';
 import './Register.css';
 
 const Register = () => {
@@ -9,6 +13,12 @@ const Register = () => {
   });
 
   const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.querySelector('.form').classList.add('fade-in');
+  }, []);
 
   const validateUsername = (username) => {
     const usernameRegex = /^PES120210\d{4}$/;
@@ -16,6 +26,15 @@ const Register = () => {
       setUsernameError('Username should start with PES120210 and end with a 4-digit number between 1000 and 3000');
     } else {
       setUsernameError('');
+    }
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      setPasswordError('Password must be at least 8 characters long, contain one uppercase letter, one lowercase letter, one number, and one special character');
+    } else {
+      setPasswordError('');
     }
   };
 
@@ -28,12 +47,14 @@ const Register = () => {
 
     if (name === 'username') {
       validateUsername(value);
+    } else if (name === 'password') {
+      validatePassword(value);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (usernameError) {
+    if (usernameError || passwordError) {
       alert('Please fix the errors before submitting the form');
       return;
     }
@@ -47,16 +68,14 @@ const Register = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
+        dispatch(clearState());
         alert('Registration successful');
       } else {
-        if (response.status === 400) {
-          alert('Email already registered or username already taken');
-        } else {
-          alert('Server error');
-        }
+        const errorResponse = await response.json();
+        alert(errorResponse.message || 'Server error');
       }
     } catch (error) {
-      alert(error);
+      alert('An error occurred: ' + error.message);
     }
   };
 
@@ -77,6 +96,7 @@ const Register = () => {
           <div className='form_element'>
             <label>Password:</label>
             <input type='password' name='password' value={formData.password} onChange={handleChange} />
+            {passwordError && <p className='error'>{passwordError}</p>}
           </div>
           <div className='form_button'>
             <button type='submit'>Register</button>

@@ -1,15 +1,4 @@
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #00BCD4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .form {
     background-color: #ffffff;
     width: 90%;
@@ -130,3 +119,4 @@ body {
         font-size: 12px;
     }
 }
+

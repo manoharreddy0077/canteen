@@ -26,8 +26,8 @@ const RecentOrders = ({ recentOrdersData }) => {
     };
 
     return (
-        <div className="recent-orders-container">
-            <h1>Recent Orders</h1>
+        <div className="recent-orders-container bg-black-gradient">
+            <h1 className="text-white text-4xl">Recent Orders</h1>
             <ul className="orders-list">
                 {recentOrdersData.map((order, index) => (
                     <li key={index} onClick={() => setSelectedOrder(order)}>
@@ -47,7 +47,7 @@ const Modal = ({ order, handleCheckOut, closeModal }) => {
         <div className="modal">
             <div className="modal-content">
                 <span className="close" onClick={closeModal}>&times;</span>
-                <h4>Order Number: {order.orderNumber}</h4>
+                <h4 className="text-black text-xl font-bold">Order Number: {order.orderNumber}</h4>
                 <div className="order-items">
                     {order.cartDetails.map((item, idx) => (
                         <div className="order-item" key={idx}>

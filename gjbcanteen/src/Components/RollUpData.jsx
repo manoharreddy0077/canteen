@@ -1,8 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import User from './MenuList/User';
-import './RollUp.css';
-import { useSelector } from 'react-redux';
 
 const RollUpData = () => {
     const location = useLocation();
@@ -12,7 +10,6 @@ const RollUpData = () => {
     if (ordersParam) {
         try {
             orders = JSON.parse(decodeURIComponent(ordersParam));
-            console.log(typeof orders);
         } catch (error) {
             console.error('Error parsing orders:', error);
         }
@@ -20,24 +17,23 @@ const RollUpData = () => {
 
     const renderOrders = () => {
         return (
-            <div className='orders-render'>
+            <div className="flex flex-col overflow-y-auto h-[34rem] gap-5">
                 {orders.map((order, index) => {
                     const cartTotal = calculateTotalPrice(order.cartDetails);
                     return (
-                        <div className="order-details" key={index}>
-                            <h4 className="order-number">Order Number: {order.orderNumber}</h4>
-                            <div className="order-items">
+                        <div className="flex flex-col bg-gray-100 shadow-lg rounded-lg p-6 w-full max-w-5xl gap-4 mb-10" key={index}>
+                            <h4 className="text-lg font-semibold mb-4">Order Number: {order.orderNumber}</h4>
+                            <div className="flex flex-wrap gap-4">
                                 {order.cartDetails.map((item, idx) => (
-                                    <div className="order-item-card" key={idx}>
-                                        <p className="itemname">{item.Item}</p>
-                                        <p className="price">Rs.{item.Price}</p>
-                                        <p className="quantity">{item.quan}</p>
-                                        <p className="canteen">{item.canteen}</p>
+                                    <div className="bg-white p-4 rounded-md shadow-md" key={idx}>
+                                        <p className="font-bold">{item.Item}</p>
+                                        <p>Rs.{item.Price}</p>
+                                        <p>Quantity: {item.quan}</p>
+                                        <p>{item.canteen}</p>
                                     </div>
                                 ))}
-                                
                             </div>
-                            <p className="details-total">Cart Total: Rs.{cartTotal}/-</p>
+                            <p className="mt-4 font-bold">Cart Total: Rs.{cartTotal}/-</p>
                         </div>
                     );
                 })}
@@ -56,23 +52,24 @@ const RollUpData = () => {
     const averageOrder = totalOrderPrice / totalOrders;
 
     return (
-        <div className='rollup-container'>
-            <div className='rollup-heading'>
-                <p>Roll-Up</p>
-            </div>
-            <div className='orders-container'>
-                {orders.length !== 0 ? renderOrders() : <p>No past orders</p>}
-            </div>
-            <div className="user-summary">
-                <div>
-                    <User />
+        <div className="p-6 bg-black-gradient min-h-screen">
+            <div className="text-4xl font-black underline text-white mb-12 text-center">Roll-Up</div>
+            <div className="flex flex-col-reverse lg:flex-row items-start gap-6">
+                <div className="orders-container w-full lg:w-2/3 bg-white bg-opacity-90 p-6 rounded-lg shadow-md overflow-y-auto">
+                    {orders.length !== 0 ? renderOrders() : <p>No past orders</p>}
                 </div>
-                <div className="summary">
-                    <h2>Total Money Spent: {totalOrderPrice}</h2>
-                    <h2>Total Number of Orders: {totalOrders}</h2>
-                    <h2>Max Order: {maxOrder}</h2>
-                    <h2>Min Order: {minOrder}</h2>
-                    <h2>Average Order: {averageOrder}</h2>
+                <div className="user-summary w-full lg:w-1/3 flex flex-col gap-6 lg:sticky lg:top-5 lg:right-5">
+                    <div className="bg-white rounded-lg shadow-md p-4 mb-5">
+                        <User />
+                    </div>
+                    <div className="summary bg-black bg-opacity-70 text-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-lg font-semibold mb-2">Summary</h2>
+                        <p>Total Money Spent: Rs.{totalOrderPrice}</p>
+                        <p>Total Number of Orders: {totalOrders}</p>
+                        <p>Max Order: Rs.{maxOrder}</p>
+                        <p>Min Order: Rs.{minOrder}</p>
+                        <p>Average Order: Rs.{averageOrder.toFixed(2)}</p>
+                    </div>
                 </div>
             </div>
         </div>

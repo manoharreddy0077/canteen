@@ -1,13 +1,15 @@
 
 
-
 import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './reducers.mjs';
+import { CLEAR_STATE } from './actions.mjs';
 
 // Middleware to save Redux state to local storage
 const saveStateMiddleware = store => next => action => {
     const result = next(action);
-    localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+    if (action.type !== CLEAR_STATE) {
+        localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+    }
     return result;
 };
 

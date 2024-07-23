@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const mongoDBURL = process.env.MONGODB_URL;
-// mongoose.connect('mongodb://localhost:27017/seproject')
+
 mongoose.connect(mongoDBURL);
 
 

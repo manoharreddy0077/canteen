@@ -2,7 +2,7 @@
     width: 70%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     border-radius: 10px;
 }
 
@@ -32,6 +32,16 @@
     background-color: #f0f0f0;
 }
 
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    max-height: 80vh; /*setting height of model..this ensures scroll will not be to full screen*/
+    overflow-y: auto;
+}
+
 .modal {
     display: flex;
     justify-content: center;
@@ -43,15 +53,9 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    overflow-y: auto; /* Ensure the modal itself can scroll if needed */
 }
 
-.modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 50%;
-    position: relative;
-}
 
 .close {
     position: absolute;

@@ -1,8 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import User from './MenuList/User';
-import './OrderDetailsDisplay.css';
 import Items from './Items';
 
 // Mock data for canteen addresses (replace with actual data source if available)
@@ -42,37 +42,48 @@ const OrderDetailsDisplay = () => {
   };
 
   return (
-    <div className="order-details-container">
-      <div className="details-and-user">
-        <div className="details">
-          <h1 className="details-heading">Order Details</h1>
-          <p className='order-number'>Order Number: {orderNumber}</p>
+    <div className="flex flex-col bg-black-gradient mt-0">
+       
+    <div className="flex flex-col-reverse md:flex-row items-stretch md:h-screen p-4">
+      
+      {/* Left Section */}
+      <div className="md:w-2/3 md:mr-4 mb-4 md:mb-0">
+      <h2 className="text-4xl font-bold mb-6 text-center mt-2 text-white underline ">Order Details</h2>
+        <div className="bg-yellow-300 rounded-lg shadow-md p-4 h-full">
+          {/* <h1 className="text-3xl font-bold text-gray-800 mb-4 underline">Order Details</h1> */}
+          <p className="text-lg mb-2">Order Number: {orderNumber}</p>
           <Items />
-          <h3 className="details-timer">Time Remaining: {Math.floor(timer / 60)}:{timer % 60 < 10 ? '0' : ''}{timer % 60}</h3>
+          <h3 className="text-lg mt-4 mb-2 ">Time Remaining: {Math.floor(timer / 60)}:{timer % 60 < 10 ? '0' : ''}{timer % 60}</h3>
         </div>
-        <div className="user">
+      </div>
+
+      {/* Top Right Section */}
+      <div className="md:w-1/3 flex-shrink-0">
+        <div className="bg-white rounded-lg shadow-md p-4 h-200 mb-4">
           <User />
         </div>
       </div>
-      <div className="canteen">
+    </div>
+      {/* Bottom Section */}
+      <div className="md:w-full mt-4 overflow-y-auto">
         {Array.from(new Set(cartItems.map(item => item.canteen))).map(canteen => (
-          <div key={canteen} className="canteen-block">
-            <h2 className="canteen-heading">{canteen} Orders:</h2>
-            <p className="canteen-address">{canteenAddresses[canteen] || 'Address not available'}</p>
-            <div className="canteen-list">
+          <div key={canteen} className="bg-blue-500 rounded-lg shadow-md p-4 mb-4">
+            <h2 className="text-3xl text-white font-bold mb-2">{canteen} Orders:</h2>
+            <p className="text-s text-white mb-2">{canteenAddresses[canteen] || 'Address not available'}</p>
+            <div className="grid gap-4  ">
               {filterCartItemsByCanteen(canteen).map(item => (
-                <div key={item._id} className="canteen-card">
-                  <div className="canteen-card-item">
-                    <span className="itemname">{item.Item}</span>
-                    <span className="price">Rs {item.Price}/-</span>
-                    <span className="quantity">Quantity: {item.quan}</span>
+                <div key={item._id} className="border bg-red-500 border-gray-200 p-4 rounded-lg">
+                  <div className="flex justify-between items-center">
+                    <span className="text-2xl font-semibold text-white">{item.Item}</span>
+                    <span className="text-xl text-white">Rs {item.Price}/-</span>
                   </div>
+                  <div className=" text-xl text-white mt-2">Quantity: {item.quan}</div>
                 </div>
               ))}
             </div>
           </div>
         ))}
-        <h2 className="details-thank-you">Thank you</h2>
+        <h2 className="text-2xl font-bold mt-4">Thank you for your order!</h2>
       </div>
     </div>
   );

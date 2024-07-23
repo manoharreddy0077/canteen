@@ -1,29 +1,32 @@
-import React from 'react'
+
+
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+
 const Items = () => {
-    const cartTotal = useSelector(state => state.cart.total);
-    const cartItems = useSelector(state => state.cart.items);
+  const cartTotal = useSelector(state => state.cart.total);
+  const cartItems = useSelector(state => state.cart.items);
+
   return (
     <div>
-       <div className="card-container">
-          {cartItems.map(item => (
-            <div className="card" key={item._id}>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfY2kZ_onsFqgRgPSXQB8r6mgxOKkZb6IcRercJSVeAPvnVV7anEzbCAqWhgYy3bbinxE" alt="Food Item" />
-              <div className="details">
-                <p className="itemname">{item.Item}</p>
-                <p className="price">Price: Rs {item.Price}</p>
-                <p className="quantity">Quantity: {item.quan}</p>
-                <p className="canteen">Canteen: {item.canteen}</p>
-              </div>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 overflow-y-auto max-h-96">
+        {cartItems.map(item => (
+          <div key={item._id} className="border ml-4 bg-white border-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+            <img src="https://via.placeholder.com/150" alt="Food Item" className="w-full h-40 object-cover" />
+            <div className="p-4">
+              <p className="text-lg font-semibold mb-2">{item.Item}</p>
+              <p className="text-sm mb-1">Price: Rs {item.Price}</p>
+              <p className="text-sm mb-1">Quantity: {item.quan}</p>
+              <p className="text-sm mb-1">Canteen: {item.canteen}</p>
             </div>
-          ))}
-        </div>
-        <div className="confirm-cart-total">
-          <p className='carttotal'>Cart Total: Rs {cartTotal}</p>
-        </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-8">
+        <div className="text-lg font-bold">Cart Total: Rs. {cartTotal}/-</div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Items
+export default Items;

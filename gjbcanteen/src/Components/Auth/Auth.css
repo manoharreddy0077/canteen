@@ -1,17 +1,4 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background: linear-gradient(rgba(0, 188, 212, 0.5), rgba(0, 188, 212, 0.5)), 
-        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfP0mjPtI8F5aJ4cBj7ax1OviCpwzT9Tgmsw&s') no-repeat center center fixed;
-    background-size: cover; */
-    /* background: linear-gradient(to right, #00BCD4, #009688); */
-   
-}
+
 
 .LoginPage {
     width: 100vw;
@@ -20,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-      background: linear-gradient(rgba(0, 188, 212, 0.5), rgba(0, 188, 212, 0.5)), 
+      background: linear-gradient(rgba(60, 61, 61, 0.5), rgba(0, 188, 212, 0.5)), 
         url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfP0mjPtI8F5aJ4cBj7ax1OviCpwzT9Tgmsw&s') no-repeat center center fixed;
     background-size: cover;
     background: linear-gradient(to right, #00BCD4, #009688);

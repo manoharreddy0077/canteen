@@ -1,8 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-}
+
 
 .rollup-container {
     position: relative;
@@ -12,7 +8,7 @@ body {
     flex-direction: column;
     padding: 20px;
     box-sizing: border-box;
-    background: linear-gradient(to right, #00BCD4, #009688);
+    background-color: black;
 }
 
 .rollup-heading p {
@@ -119,4 +115,5 @@ body {
    .rollup-container{
     background-color: red;
    }
+   
 }

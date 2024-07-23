@@ -1,38 +1,45 @@
-import logo from './logo.svg';
+
 import './App.css';
 import './Components/Auth/Auth';
 import './Components/ConfirmCartItems'
 import './Components/MenuList/MenuList';
 import './Components/OrderDetailsDisplay'
 import './Components/Payment'
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
 import MenuList from './Components/MenuList/MenuList';
 import ConfirmCartItems from './Components/ConfirmCartItems';
 import Payment from './Components/Payment';
 import OrderDetailsDisplay from './Components/OrderDetailsDisplay';
-import { combineReducers } from 'redux';
 import RollUpData from './Components/RollUpData';
-
-import Items from './Components/Items';
 import CartPage from './Components/MenuList/CartPage';
 import Dashboard from './Components/Dashboards/Dashboard';
+import Layout from './Layout'; // Import the Layout component
 
-// import  store from './store/store'
 function App() {
   return (
     <div className="App">
       <Router>
-            <Routes>
-              <Route path='/'Component={Auth}></Route>
-              <Route path='/MenuList'Component={MenuList}></Route>
-              <Route path='/ConfirmCartItems'Component={ConfirmCartItems}></Route>
-              <Route path='/Payment'Component={Payment}></Route>
-              <Route path='/OrderDetailsDisplay/:orderNumber'Component={OrderDetailsDisplay}></Route>
-              <Route path='/RollUpData' Component={RollUpData}></Route>
-              <Route path='/cart' Component={CartPage}></Route>
-              <Route path="/dashboard" element={<Dashboard/>} />
-            </Routes>
+        <Routes>
+          <Route path="/" element={<Auth />} />
+          <Route
+            path="*"
+            element={
+              <Layout>
+                <Routes>
+                  <Route path="/MenuList" element={<MenuList />} />
+                  <Route path="/OrderDetailsDisplay/:orderNumber" element={<OrderDetailsDisplay />} />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                </Routes>
+              </Layout>
+            }
+          />
+          <Route path="/ConfirmCartItems" element={<ConfirmCartItems />} />
+          <Route path="/Payment" element={<Payment />} />
+           <Route path="/RollUpData" element={<RollUpData />} />
+        </Routes>
       </Router>
     </div>
   );
