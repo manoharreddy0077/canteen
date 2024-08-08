@@ -1,0 +1,50 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+  }
+  .content {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    width: 75%;
+  }
+  /* .header{
+    display: none;
+  } */
+  .menu {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .menu-item input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .menu-item button {
+    padding: 10px;
+    background-color: #008c9e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-item button:hover {
+    background-color: #006f79;
+  }
+  

@@ -1,0 +1,183 @@
+.payment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* background: linear-gradient(to right, #00BCD4, #009688); Update background to gradient */
+  width: 100vw;
+  margin: 0px;
+  padding-left: 10px;
+  height: auto;
+}
+
+.payment {
+  width: calc(100vw - 35%);
+  flex-grow: 1; /* Allow the payment section to grow and fill available space */
+  margin-right: 35%;
+}
+
+.user-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.payment-heading {
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-decoration: underline;
+  padding-left: 10px;
+  margin-top: 0;
+}
+
+.payment-item-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.payment-item-heading p {
+  text-align: center;
+}
+
+.payment-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.payment-method {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.payment-method button {
+  border-radius: 10px;
+  padding: 15px;
+  width: 10vw;
+  font-weight: 700;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-bottom: 6px;
+  margin: 4px;
+}
+
+.payment-method button:hover {
+  background-color: #000;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.payment-option-details {
+  margin-top: 20px;
+  margin: 10px;
+  width: 40vw;
+  margin-left: 250px;
+}
+
+.payment-option-details h2 {
+  margin-bottom: 10px;
+}
+
+.payment-option-details input {
+  margin-bottom: 10px;
+}
+
+.payment-option-details span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.payment-total {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.payment-buttons button {
+  border-radius: 10px;
+  padding: 15px;
+  width: 10vw;
+  font-weight: 700;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-bottom: 6px;
+  margin: 4px;
+}
+
+.payment-buttons button:hover {
+  background-color: #000;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.payment-subheading {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.form-element-debit {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.form-label-debit {
+  width: 50%;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 60px;
+  font-size: 18px;
+}
+
+.form-input-debit {
+  width: 50%;
+  padding: 8px;
+  margin-left: 10px;
+  border-radius: 5%;
+}
+
+@media (max-width: 768px) {
+  .payment-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .payment {
+    width: 90%; /* Adjust width for smaller screens */
+    margin-right: 0;
+  }
+
+  .payment-heading {
+    font-size: 32px; /* Adjust font size for smaller screens */
+    width: 100%; /* Occupy full width */
+    text-align: center; /* Center align text */
+  }
+
+  .payment-method button {
+    width: 45vw; /* Adjust button width for smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .user-container {
+    width: 90%; /* Adjust width for smaller screens */
+    padding: 10px;
+    margin-top: 20px; /* Add margin to separate user component */
+    display: none;
+  }
+}

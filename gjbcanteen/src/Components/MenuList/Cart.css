@@ -1,0 +1,132 @@
+/* 
+  
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    color: black;
+    text-decoration: underline;
+    width: 75vw;
+    margin-top: 0;
+  }
+  
+  .cart-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
+  .card-container-cart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px; 
+  }
+  
+  .card {
+    border: 1px solid black;
+    border-radius: 12%;
+    width: 140px;
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12% 12% 0 0;
+    object-fit: cover; 
+  }
+  
+  .details {
+    text-align: center;
+    padding: 4px 0; 
+  }
+  
+  .details > p {
+    margin: 2px 0; 
+    font-size: 12px; 
+  }
+  
+  .itemname {
+    font-weight: bold;
+    font-size: 14px; 
+  }
+  
+  .price, .quantity, .canteen {
+    font-weight: normal;
+    font-size: 12px; 
+    word-wrap: break-word; 
+  }
+  
+  .remove-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .remove-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .cart-summary {
+    margin-top: 20px;
+  }
+  
+  .total-checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .total-checkout p {
+    font-size: 22px;
+    font-weight: 900;
+
+  }
+  
+  .checkout-button {
+    padding: 10px 20px;
+    background-color: #008C9E;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .checkout-button > P{
+    color: #fff;
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .checkout-button:hover {
+    background-color: #006F79;
+  }
+  
+
+  @media only screen and (min-width: 600px) {
+    .card-container-cart {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+} */
+

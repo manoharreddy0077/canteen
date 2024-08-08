@@ -1,0 +1,114 @@
+.confirm-cart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background: linear-gradient(to right, #00BCD4, #009688); Update background to gradient */
+    width: 100vw;
+    margin: 0px;
+    padding-left: 10px;
+}
+
+.confirm-cart-items {
+    width: 75vw;
+    margin-top: 20px;
+}
+
+.confirm-cart-heading {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-decoration: underline;
+    padding-left: 10px;
+    margin-top: 0;
+}
+
+.confirm-cart-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.confirm-cart-item-heading {
+    font-weight: 900;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 18px;
+}
+
+.confirm-cart-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.confirm-cart-insufficient {
+    margin-top: 20px;
+}
+
+.confirm-cart-buttons {
+    margin-top: 20px;
+}
+
+.confirm-cart-buttons button {
+    border-radius: 10px;
+    padding: 15px;
+    width: 10vw;
+    font-weight: 700;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-bottom: 6px;
+    margin: 4px;
+}
+
+.confirm-cart-buttons button:hover {
+    background-color: #000;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.confirm-cart {
+    width: 75vw;
+}
+
+.user-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .confirm-cart-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .confirm-cart {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .confirm-cart-heading {
+        font-size: 32px; /* Adjust font size for smaller screens */
+        width: 100%; /* Occupy full width */
+        text-align: center; /* Center align text */
+    }
+
+    .confirm-cart-buttons button {
+        width: 45vw; /* Adjust button width for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .user-container {
+        width: 90%; /* Adjust width for smaller screens */
+        padding: 10px;
+        margin-top: 20px; /* Add margin to separate user component */
+        display: none;
+    }
+}

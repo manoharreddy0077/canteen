@@ -1,0 +1,21 @@
+/* CartPage.css */
+
+.cart-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user,
+  .cart {
+    width: 80%;
+    max-width: 600px; /* Added max-width to prevent elements from exceeding a certain width */
+  }
+  
+  @media (min-width: 500px) {
+    .user,
+    .cart {
+      width: 100%;
+    }
+  }
+  

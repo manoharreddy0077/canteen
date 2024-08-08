@@ -1,0 +1,119 @@
+
+
+.rollup-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.rollup-heading p {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-decoration: underline;
+    width: 75vw;
+    padding-left: 10px;
+    margin-top: 0;
+}
+
+.orders-container {
+    width: 65%;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-summary {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30%;
+    /* background: linear-gradient(135deg, #ffcc33 0%, #ff6699 100%); */
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    color: black;
+}
+
+.order-details {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.order-item-card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 140px;
+}
+
+.order-item-card p {
+    margin: 4px 0;
+    text-align: center;
+    color: #333;
+}
+
+.itemname {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.price, .quantity, .canteen {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.details-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #333;
+}
+
+.summary {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.summary h2 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+
+@media  (max-width:780px){
+    
+   .rollup-container{
+    background-color: red;
+   }
+   
+}

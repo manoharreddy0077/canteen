@@ -1,0 +1,163 @@
+.recent-orders-container {
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    /* background-color: #f9f9f9; */
+    border-radius: 10px;
+}
+
+.recent-orders-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.orders-list {
+    list-style: none;
+    padding: 0;
+}
+
+.orders-list li {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.orders-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    max-height: 80vh; /*setting height of model..this ensures scroll will not be to full screen*/
+    overflow-y: auto;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto; /* Ensure the modal itself can scroll if needed */
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.order-items {
+    margin-bottom: 10px;
+}
+
+.order-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.order-item p {
+    margin: 5px 0;
+}
+
+.order-total p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.order-total button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.order-total button:hover {
+    background-color: #4CAF50;
+}
+
+
+@media (max-width: 768px) {
+    .recent-orders-container {
+        width: 90%; /* Adjusted width for smaller screens */
+        padding: 10px;
+    }
+
+    .orders-list li {
+        padding: 10px;
+        font-size: 14px; /* Adjusted font size for smaller screens */
+    }
+
+    .modal-content {
+        width: 90%; /* Adjusted width for smaller screens */
+        padding: 10px;
+    }
+
+    .order-total p {
+        font-size: 16px; /* Adjusted font size for smaller screens */
+    }
+
+    .order-total button {
+        padding: 8px 16px;
+        font-size: 14px; /* Adjusted font size for smaller screens */
+    }
+
+    .close {
+        font-size: 18px; /* Adjusted font size for smaller screens */
+    }
+}
+
+
+@media (max-width: 480px) {
+    .recent-orders-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .orders-list li {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .order-total p {
+        font-size: 14px;
+    }
+
+    .order-total button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .close {
+        font-size: 16px;
+    }
+}

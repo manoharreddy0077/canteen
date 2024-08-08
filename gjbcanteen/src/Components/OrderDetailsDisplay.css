@@ -1,0 +1,150 @@
+.order-details-container {
+  margin: 20px;
+  background-color:#00BCD4;
+  padding: 0;
+}
+
+.details-and-user {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details {
+  width: 70%;
+}
+
+.details-heading {
+  font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-decoration: underline;
+    width: 75vw;
+    padding-left: 10px;
+    margin-top: 0;
+}
+
+.details-list {
+  margin-bottom: 20px;
+}
+
+.details-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.details-header span {
+  text-align: center;
+}
+
+.details-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+}
+
+.details-total {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.details-timer {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.details-thank-you {
+  font-size: 38px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.canteen {
+  margin-top: 20px;
+}
+
+.canteen-block {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.canteen-heading {
+  font-size: 24px; /* Increased font size */
+  font-weight: 900; /* Made much bolder */
+  margin-bottom: 10px;
+}
+
+.canteen-address {
+  font-size: 18px; /* Slightly increased font size */
+  font-weight: bold; /* Made bolder */
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.canteen-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 4px;
+}
+
+.canteen-card {
+  border: 1px solid black;
+  border-radius: 12%;
+  width: 140px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+}
+
+.canteen-card-item {
+  text-align: center;
+}
+
+.canteen-card-item > span {
+  display: block;
+  margin: 2px 0;
+}
+
+.itemname {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.price,
+.quantity {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.user {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  padding: 10px;
+}
+
+.details .order-number {
+  font-size: 20px; /* Increased font size */
+  font-weight: 700; /* Made bolder */
+  /* color: red; */
+  text-decoration: underline;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
